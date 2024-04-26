@@ -1,7 +1,17 @@
 import logo from './logo.svg';
+import axios from 'axios';
 import './App.css';
+import { useEffect } from 'react';
 
 function App() {
+
+  useEffect(() => {
+    axios.get("https://localhost:7292/WeatherForecast")
+      .then(res => {
+        console.log(res.data);
+      });
+  }, []); // test api
+
   return (
     <div className="App">
       <header className="App-header">
