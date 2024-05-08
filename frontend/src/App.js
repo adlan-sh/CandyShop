@@ -2,19 +2,20 @@ import logo from './logo.svg';
 import axios from 'axios';
 import './App.css';
 import { useEffect } from 'react';
+import Payment from './payment';
 
 function App() {
 
-  useEffect(() => {
-    axios.get("https://localhost:7292/WeatherForecast")
-      .then(res => {
-        console.log(res.data);
-      });
-  }, []); // test api
+  // useEffect(() => {
+  //   axios.get("https://localhost:7292/WeatherForecast")
+  //     .then(res => {
+  //       console.log(res.data);
+  //     });
+  // }, []); // test api
 
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -27,7 +28,8 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
+      <Payment price={150} />
     </div>
   );
 }
