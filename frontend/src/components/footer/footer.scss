@@ -1,0 +1,57 @@
+.main-footer {
+    width: 1170px;
+    display: flex;
+    margin: 48px auto;
+    margin-top: 48px;
+}
+
+.bestesller-container-contacts {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    margin-right: 302px;
+}
+
+.footer-data-list {
+    max-width: 350px;
+    margin: 0 200px 9px 23px;
+    padding: 0;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 126px 182px;
+    gap: 24px;
+    row-gap: 8px;
+}
+
+.footer-data-item {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.footer-data-item-heart {
+    font-weight: 700;
+    position: relative;
+}
+
+.footer-data-item-heart::before {
+    position: absolute;
+    content: "";
+    width: 14px;
+    height: 13px;
+    // background-image: url("../images/heart.svg");
+    left: -23px;
+    top: 3px;
+}
+
+.created-by {
+    font-size: 12px;
+    line-height: 16px;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.htmlacademy-href {
+    text-decoration: none;
+    color: inherit;
+}

@@ -1,5 +1,6 @@
 import "./header.scss";
 import Popover from '../popover/Popover';
+import { Link } from "react-router-dom";
 
 const Button = ({ onClick }: { onClick: () => void }) => {
     return (
@@ -31,7 +32,7 @@ const Header = () => {
                     fill="#2D3440" /></svg>
                 <ul className="navigation-list">
                     <li className="navigation-item">
-                        <a className="navigation-link navigation-link-catalog" href="catalog.html" >Каталог</a>
+                        <Link className="navigation-link navigation-link-catalog" to="/catalog">Каталог</Link>
                         <div className="clickable" style={{ "background": "#FCC850" }}></div>
                         <div className="popover-catalog">
                             <a className="popover-catalog-title-hot" href="#">Новинки</a>
