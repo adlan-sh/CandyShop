@@ -31,6 +31,27 @@ namespace backend.Controllers
             return Ok(products);
         }
 
+        [Route("add-to-cart")]
+        [HttpPost]
+        public async Task<IActionResult> AddToCart(int productId)
+        {
+            var user = GetCurrentUser();
+            if (user is null) return Unauthorized();
+
+            var product = await _ctx.Products.FirstOrDefaultAsync(p => p.Id == productId);
+            if (product is null) return ValidationProblem($"Product with ID {productId} does not exist.")
+
+            var cartItem = new CartItem
+            {
+                User = user,
+                Item = product,
+            };
+            _ctx.CartItems.Add(cartItem);
+            await _ctx.SaveChangesAsync();
+
+            return Ok(true);
+        }
+
         protected User? GetCurrentUser()
         {
             if (HttpContext.User.Identity is ClaimsIdentity identity)
