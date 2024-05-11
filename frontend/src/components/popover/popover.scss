@@ -1,0 +1,332 @@
+.popover {
+    z-index: 1;
+    position: absolute;
+    top: 42px;
+    right: 2px;
+    background: #FCFCFC;
+    border-radius: 4px;
+    padding: 48px;
+    box-sizing: border-box;
+}
+
+.popover-cart {
+    width: 441px;
+}
+
+.popover-title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    margin: 0;
+    margin-bottom: 32px;
+}
+
+.popover-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    padding-bottom: 31px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid #E7E7E7;
+
+}
+
+.popover-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 62px 164px 103px 16px;
+    grid-template-areas:
+        "img title price button"
+        "img amount price button";
+}
+
+.popover-item:not(:last-of-type) {
+    margin-bottom: 24px;
+}
+
+.popover-item-title {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: title;
+    margin: 0;
+    margin-bottom: 4px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.popover-item-amount {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    grid-area: amount;
+    margin: 0;
+    font-size: 14px;
+    line-height: 20px;
+    color: #B9B9B9;
+}
+
+.popover-item-price {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 3;
+    grid-area: price;
+    margin: 0;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    align-self: center;
+}
+
+.popover-item-button-close {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 4;
+    grid-area: button;
+}
+
+.popover-item img {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 1;
+    grid-area: img;
+}
+
+.popover-cart-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.popover-button {
+    background: #FF2F64;
+    outline: 4px solid rgba(255, 47, 100, 0.3);
+    color: #ffffff;
+    align-self: start;
+}
+
+.popover-result {
+    position: relative;
+    top: 3px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0;
+    align-self: center;
+
+}
+
+.popover-item-button-close {
+    width: 16px;
+    height: 16px;
+    border: 0;
+    background-color: #fcfcfc;
+    align-self: center;
+}
+
+.popover-item-button-close::before,
+.popover-item-button-close::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    outline: 1px solid #000000;
+    transform: rotate(45deg);
+    top: 22px;
+    right: 2px;
+}
+
+.popover-item-button-close::after {
+    transform: rotate(135deg);
+}
+
+.popover-search {
+    display: flex;
+    flex-direction: column;
+    width: 356px;
+    padding: 24px 16px;
+    border-radius: 4px;
+    background: #ffffff;
+}
+
+.popover-search input {
+    position: relative;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 14px 0px 14px 16px;
+    border-radius: 4px;
+    border: 1px solid #b9b9b9;
+}
+
+.popover-search input:hover {
+    outline: 1px solid #2D3440;
+}
+
+.popover-search input:focus {
+    outline: none;
+}
+
+.popover-search input:disabled {
+    background: #E7E7E7;
+    outline: 1px solid #B9B9B9;
+}
+
+.popover-search-button-close {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    right: 29px;
+    top: 40px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.popover-search-button-close:hover {
+    opacity: 1;
+}
+
+.popover-search-button-close::before,
+.popover-search-button-close::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    outline: 1px solid #000000;
+    transform: rotate(45deg);
+    left: 2px;
+}
+
+.popover-search-button-close::after {
+    transform: rotate(135deg);
+}
+
+.popover-search::after input:focus {
+    content: "";
+    position: absolute;
+    width: 12px;
+    outline: 1px solid #000000;
+    transform: rotate(45deg);
+}
+
+.popover-search input::placeholder {
+    color: #B9B9B9;
+}
+
+.popover-entry {
+    right: 0;
+    padding-bottom: 52px;
+    width: 420px;
+}
+
+.popover-entry-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.popover-entry-info {
+    display: grid;
+    row-gap: 3px;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    margin-top: 16px;
+}
+
+.popover-entry-form .popover-button {
+    margin-right: 23px;
+    grid-row: 1/3;
+}
+
+.popover-link {
+    justify-self: start;
+    align-self: start;
+    font-size: 14px;
+    line-height: 20px;
+    grid-column: 2/3;
+    text-decoration: none;
+    color: #2D3440;
+    border-bottom: 1px solid #2D3440;
+}
+
+.popover-cart-empty {
+    width: 288px;
+}
+
+.popover-cart-empty .popover-title {
+    text-align: center;
+}
+
+.popover-catalog {
+    display: none;
+    z-index: 1;
+    position: absolute;
+    top: 34px;
+    right: 2px;
+    background: #FCFCFC;
+    border-radius: 4px;
+    box-sizing: border-box;
+    min-width: 138px;
+    padding: 0;
+    padding-bottom: 10px;
+    left: 0;
+    margin-top: 8px;
+}
+
+.popover-catalog:hover {
+    display: block;
+}
+
+.clickable:hover+.popover-catalog {
+    display: block;
+}
+
+.navigation-link-catalog:hover~.popover-catalog {
+    display: block;
+}
+
+.popover-catalog-title {
+    padding: 8px 16px;
+    display: block;
+    font-size: 14px;
+    line-height: 20px;
+    text-decoration: none;
+    color: #2D3440;
+    margin-bottom: 4px;
+}
+
+.popover-catalog-title:hover {
+    background: #FFCBD8;
+}
+
+.popover-catalog-title:focus {
+    outline: none;
+    color: white;
+    background: #FF7799;
+}
+
+.popover-catalog-title:active {
+    background: #FF7799;
+    color: black;
+}
+
+.popover-catalog-title-hot {
+    display: block;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-decoration: none;
+    color: #2D3440;
+    margin: 0 16px 4px 16px;
+    padding: 16px 16px 12px 0;
+    border-bottom: 1px solid #b9b9b9;
+}
+
+.popover-catalog-title-hot:hover {
+    background-color: transparent;
+}
+
+.popover-catalog-title-hot:focus {
+    outline: none;
+}
+
+.popover-close {
+    display: none;
+}
