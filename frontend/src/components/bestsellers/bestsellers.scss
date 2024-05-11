@@ -1,6 +1,7 @@
 .bestsellers {
     display: grid;
-    grid-template-columns: 560px 610px;
+    margin-top: 50px;
+    grid-template-columns: 700px 610px;
     /* grid-template-rows: 530px 24px; */
 }
 
@@ -93,4 +94,41 @@
     font-size: 18px;
     line-height: 24px;
     margin: 0 0 48px;
+}
+
+.main-button,
+.additional-button,
+.transparent-button {
+    color: #2D3440;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    line-height: 20px;
+    font-size: 16px;
+    padding: 12px 32px;
+    border: 0;
+    border-radius: 26px;
+    box-shadow: 0px 4px 12px rgba(45, 52, 64, 0.1);
+    cursor: pointer;
+}
+
+.bestseller-button {
+    background: #FCFCFC;
+    border: 0;
+    outline: 4px solid rgba(252, 252, 252, 0.4);
+}
+
+.main-button:hover {
+    background: rgba(252, 252, 252, 0.4);
+    outline: 4px solid #FCFCFC;
+}
+
+.main-button:focus {
+    background: #FCFCFC;
+    outline: 2px solid #2D3440;
+}
+
+.main-button:disabled {
+    background: #E7E7E7;
+    outline: 4px solid rgba(252, 252, 252, 0.4);
+    color: #B9B9B9;
 }

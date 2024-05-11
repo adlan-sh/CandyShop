@@ -1,0 +1,59 @@
+.gifts-section-title,
+.popular-tastes-main-title,
+.advantages-title {
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 46px;
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.gifts-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 570px 570px;
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.gift-item {
+    position: relative;
+    width: 570px;
+    background: #FF7799;
+    border-radius: 16px;
+}
+
+.gift-title {
+    width: 330px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    margin: 40px 0 16px 40px;
+}
+
+.gift-img-raspberry {
+    position: absolute;
+    right: 15px;
+    top: 6px;
+}
+
+.gift-img-marshmallow {
+    position: absolute;
+    right: 7px;
+    top: -36px;
+}
+
+.gift-description {
+    width: 330px;
+    font-size: 16px;
+    line-height: 22px;
+    margin: 0px 0px 32px 40px;
+}
+
+.gift-button {
+    outline: 4px solid rgba(252, 252, 252, 0.4);
+    margin: 0 0 40px 40px;
+    max-width: 350px;
+}
