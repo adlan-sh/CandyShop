@@ -1,0 +1,46 @@
+body {
+    background-color: #FEAFC3;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.first-line {
+    display: flex;
+    justify-content: space-around;
+}
+
+.second-line {
+    display: flex;
+    justify-content: space-around;
+}
+
+.avatar {
+    margin-left: 10%;
+}
+
+.line {
+    margin-left: 8%;
+    margin-bottom: -60px;
+    hr {
+        width: 45%;
+        margin-top: 10px;
+        border-color: #FF2F59;
+    }
+} 
+
+
+.fields {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.orders {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import Bestsellers from '../bestsellers/Bestsellers'
+import Order from '../lk/order/Order'
 
 const Main = () => {
     return (

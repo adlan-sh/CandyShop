@@ -13,6 +13,7 @@
     "axios": "^1.6.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-qr-code": "^2.0.12",
     "react-scripts": "5.0.1",
     "sass": "^1.71.1",
     "typescript": "^4.9.5",
@@ -41,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/qrcode": "^1.5.5"
   }
 }

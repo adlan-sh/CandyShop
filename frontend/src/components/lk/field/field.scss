@@ -1,0 +1,27 @@
+input {
+    margin-top: 4px;
+    margin-left: -2px;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    min-width: 220px;
+}
+
+.user {
+    background: url(./../../../images/lk/user.svg) no-repeat scroll 7px 7px;
+    padding-left:30px;
+    background-color: #fff;
+}
+
+.email {
+    background: url(./../../../images/lk/email.svg) no-repeat scroll 7px 7px;
+    padding-left:30px;
+    background-color: #fff;
+}
+
+
+.tel {
+    background: url(./../../../images/lk/tel.svg) no-repeat scroll 7px 7px;
+    padding-left:30px;
+    background-color: #fff;
+}
