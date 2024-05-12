@@ -1,0 +1,73 @@
+.popular-tastes-list {
+    display: grid;
+    grid-template-columns: repeat(4, 270px);
+    gap: 30px;
+    row-gap: 91px;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 79px;
+    list-style-type: none;
+}
+
+.popular-tastes-item {
+    position: relative;
+    background: #FCFCFC;
+    border-radius: 8px;
+    padding: 0 40px;
+}
+
+.popular-tastes-main-title {
+    margin-bottom: 107px;
+}
+
+.popular-tastes-item img {
+    position: absolute;
+    border-radius: 50%;
+    top: -51px;
+    left: 52px;
+}
+
+.popular-tastes-title {
+    font-size: 20px;
+    line-height: 24px;
+    width: 190px;
+    text-align: center;
+    margin: 0 auto;
+    margin: 133px 0 9px 0;
+}
+
+.popular-tastes-description {
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.popular-tastes-price {
+    display: inline-block;
+    width: 150px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.popular-tastes-button {
+    position: relative;
+    top: -8px;
+    left: 4px;
+    width: 32px;
+    height: 32px;
+    background: #FF2F64;
+    border-radius: 26px;
+    padding: 0;
+    color: #fcfcfc;
+    margin-bottom: 16px;
+}
+
+.popular-tastes-icon {
+    position: absolute;
+    color: inherit;
+    top: 8px;
+    left: 7px;
+}
