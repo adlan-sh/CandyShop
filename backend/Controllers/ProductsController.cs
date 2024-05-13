@@ -18,7 +18,9 @@ namespace backend.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var products = await _ctx.Products.ToListAsync();
+            var products = await _ctx.Products
+                .Where(p => !p.Hidden)
+                .ToListAsync();
 
             return Ok(products);
         }

@@ -11,8 +11,9 @@ namespace backend.Models
         public double CostPer100g { get; set; }
         public string? Category { get; set; }
         public string? Tag { get; set; }
+        public bool Hidden { get; set; }
 
         [NotMapped]
-        public string[] Tags => Tag is not null ? Tag.Split(' ', StringSplitOptions.RemoveEmptyEntries) : Array.Empty<string>();
+        public string[] Tags => Tag is not null ? Tag.Split(';', StringSplitOptions.RemoveEmptyEntries) : Array.Empty<string>();
     }
 }
