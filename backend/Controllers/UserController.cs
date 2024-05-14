@@ -144,16 +144,20 @@ namespace backend.Controllers
             if (HttpContext.User.Identity is ClaimsIdentity identity)
             {
                 var userClaims = identity.Claims;
+                var username = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.GivenName);
 
-                return new User
+                if (username is not null)
                 {
-                    Username = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.GivenName)?.Value,
-                    Email = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.Email)?.Value!,
-                    Id = int.Parse(userClaims.FirstOrDefault(o => o.Type == ClaimTypes.NameIdentifier)?.Value!),
-                    Role = Enum.Parse<UserRole>(userClaims.FirstOrDefault(o => o.Type == ClaimTypes.Role)?.Value!),
-                    Login = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.Name)?.Value!,
-                    Password = "Hidden.",
-                };
+                    return new User
+                    {
+                        Username = username.Value,
+                        Email = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.Email)?.Value!,
+                        Id = int.Parse(userClaims.FirstOrDefault(o => o.Type == ClaimTypes.NameIdentifier)?.Value!),
+                        Role = Enum.Parse<UserRole>(userClaims.FirstOrDefault(o => o.Type == ClaimTypes.Role)?.Value!),
+                        Login = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.Name)?.Value!,
+                        Password = "Hidden.",
+                    };
+                }
             }
 
             return null;

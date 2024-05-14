@@ -20,6 +20,17 @@ namespace backend.Data
             builder.Entity<User>()
                 .HasIndex(u => u.Login)
                 .IsUnique();
+
+            var user = new User
+            {
+                Id = 1,
+                Email = "administrator@candyshop.ru",
+                Login = "admin",
+                Password = "admin",
+                Role = UserRole.Admin,
+                Username = "Администратор",
+            };
+            builder.Entity<User>().HasData(user);
         }
     }
 }

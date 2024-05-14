@@ -79,19 +79,23 @@ namespace backend.Controllers
             if (HttpContext.User.Identity is ClaimsIdentity identity)
             {
                 var userClaims = identity.Claims;
-                var userRole = Enum.Parse<UserRole>(userClaims.FirstOrDefault(o => o.Type == ClaimTypes.Role)?.Value!);
-
-                if (userRole == UserRole.Admin)
+                var userRoleStr = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.Role);
+                if (userRoleStr is not null)
                 {
-                    return new User
+                    var userRole = Enum.Parse<UserRole>(userRoleStr.Value);
+
+                    if (userRole == UserRole.Admin)
                     {
-                        Username = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.GivenName)?.Value,
-                        Email = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.Email)?.Value!,
-                        Id = int.Parse(userClaims.FirstOrDefault(o => o.Type == ClaimTypes.NameIdentifier)?.Value!),
-                        Role = userRole,
-                        Login = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.Name)?.Value!,
-                        Password = "Hidden.",
-                    };
+                        return new User
+                        {
+                            Username = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.GivenName)?.Value,
+                            Email = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.Email)?.Value!,
+                            Id = int.Parse(userClaims.FirstOrDefault(o => o.Type == ClaimTypes.NameIdentifier)?.Value!),
+                            Role = userRole,
+                            Login = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.Name)?.Value!,
+                            Password = "Hidden.",
+                        };
+                    }
                 }
             }
 
