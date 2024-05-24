@@ -8,12 +8,6 @@ import creamyIceCream from "../../images/creamy-ice-cream.png"
 import creamyIceCreamMicro from "../../images/creamy-ice-cream-micro.png"
 import Contacts from '../contacts/Contacts';
 
-
-const useCarousel = () => {
-
-}
-
-
 const Bestsellers = () => {
     const [height, setHeight] = useState(66);
     const totalWidth = 610;
@@ -36,12 +30,40 @@ const Bestsellers = () => {
                     <div className='bestseller-item-current-theme'
                         style={{ backgroundColor: currentItemThemes[MainThemeColorIndex] }}>
                     </div>
+                    <button className="bestseller-button-arrow" type="button">
+                        <span className="visually-hidden">Посмотреть предыдущее мороженое</span>
+                    </button>
                     <img src={caramelIceCream} width={306} height={507} alt="Карамельное мороженое" />
+                    <button className="bestseller-button-arrow" type="button">
+                        <span className="visually-hidden">Посмотреть следующее мороженое</span>
+                    </button>
+                </li>
+                <li style={{ left: `${360 % totalWidth}px` }} className="bestseller-item">
+                    <img style={{ opacity: 0.5 }} src={strawberryIceCream} width={66} height={250} alt="Клубничное мороженое" />
+                </li>
+                <li style={{ left: `${610 % totalWidth}px` }} className="bestseller-item">
+                    <img style={{ opacity: 0.5 }} src={creamyIceCream} width="66" height="150" alt="Сливочное мороженое" />
                 </li>
             </ul>
             <ul className="bestseller-slider">
                 <li className="bestseller-slider-item">
-
+                    <a href="index-pink.html" tabIndex={-1} >
+                        <button className="bestseller-slider-button">
+                            <span className="visually-hidden">Первый хит продаж</span>
+                        </button>
+                    </a>
+                </li>
+                <li className="bestseller-slider-item">
+                    <a href="index-blue.html" tabIndex={-1}>
+                        <button className="bestseller-slider-button">
+                            <span className="visually-hidden">Второй хит продаж</span>
+                        </button>
+                    </a>
+                </li>
+                <li className="bestseller-slider-item">
+                    <button className="bestseller-slider-button bestseller-slider-button-current">
+                        <span className="visually-hidden">Третий хит продаж</span>
+                    </button>
                 </li>
             </ul>
             <ul className="bestseller-contacts">
