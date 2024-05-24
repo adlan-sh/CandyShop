@@ -7,9 +7,9 @@ enum ChangeEnum {
 }
 
 async function changeCartIceCreamAmount(ItemId: number, changeType: ChangeEnum) {
-    const { data, error } = useQuery({
-        queryKey: ["changeCartIceCreamAmount"],
-        queryFn: () =>
-            axios.get("/api/cart")
-    });
+    // const { data, error } = useQuery({
+    //     queryKey: ["changeCartIceCreamAmount"],
+    //     queryFn: () =>
+    //         axios.get("/api/cart")
+    // });
 }

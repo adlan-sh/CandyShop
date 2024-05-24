@@ -1,11 +1,15 @@
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 type Item = {
     id: number;
 }
 
-//поставить реакт куери
 async function addToCartRequest(ItemId: number) {
-    const {} = await axios.post("/api/cart", { id: ItemId })
+    // const {} = useQuery({
+    //     queryKey: ["addToCartRequest"],
+    //     queryFn: () => 
+    //         axios.post("/api/cart", { id: ItemId })
+    // });
 }
 

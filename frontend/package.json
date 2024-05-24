@@ -14,7 +14,8 @@
     "axios": "^1.6.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-qr-code": "^2.0.12",
+    "react-qr-code": "^2.0.13",
+    "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
     "sass": "^1.71.1",
     "typescript": "^4.9.5",
@@ -48,4 +49,3 @@
     "@types/qrcode": "^1.5.5"
   }
 }
-

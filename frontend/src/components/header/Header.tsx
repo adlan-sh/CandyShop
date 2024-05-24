@@ -1,6 +1,9 @@
 import "./header.scss";
 import Popover from '../popover/Popover';
 import { Link } from "react-router-dom";
+import getCartRequest from "../../api/cart/getCartRequest";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const Button = ({ onClick }: { onClick: () => void }) => {
     return (
@@ -25,6 +28,15 @@ const Button2 = ({ onClick }: { onClick: () => void }) => {
 }
 
 const Header = () => {
+    const { data, error } = useQuery({
+        queryKey: ["getCartRequest"],
+        queryFn: () =>
+            axios.get("/api/cart")
+    });
+
+
+
+
     return (
         <header>
             <nav className="navigation">
@@ -90,6 +102,7 @@ const Header = () => {
                             <div className="popover popover-cart">
                                 <h3 className="popover-title">Корзина</h3>
                                 <ul className="popover-list">
+
                                     <li className="popover-item">
                                         <img src="/images/circle-raspberry-ice-cream.jpg" width="46" height="46" alt="малиновое мороженое" />
                                         <p className="popover-item-title">Малинка</p>
