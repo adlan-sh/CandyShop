@@ -3,32 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|c:\\users\\yaros\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\github\\candyshop\\backend\\migrations\\20240511094932_adddbtables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|solutionrelative:migrations\\20240511094932_adddbtables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|c:\\users\\yaros\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\github\\candyshop\\backend\\migrations\\20240510114447_initial migration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|solutionrelative:migrations\\20240510114447_initial migration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|c:\\users\\yaros\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\github\\candyshop\\backend\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|solutionrelative:controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|c:\\users\\yaros\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\github\\candyshop\\backend\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|solutionrelative:controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|c:\\users\\yaros\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\github\\candyshop\\backend\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|c:\\users\\yaros\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\github\\candyshop\\backend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|c:\\users\\yaros\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\github\\candyshop\\backend\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|solutionrelative:migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|c:\\users\\yaros\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\github\\candyshop\\backend\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -45,6 +21,30 @@
     {
       "AbsoluteMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|c:\\users\\yaros\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\github\\candyshop\\backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|c:\\users\\yaros\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\github\\candyshop\\backend\\migrations\\20240511094932_adddbtables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|solutionrelative:migrations\\20240511094932_adddbtables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|c:\\users\\yaros\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\github\\candyshop\\backend\\migrations\\20240510114447_initial migration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|solutionrelative:migrations\\20240510114447_initial migration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|c:\\users\\yaros\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\github\\candyshop\\backend\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|solutionrelative:controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|c:\\users\\yaros\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\github\\candyshop\\backend\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|solutionrelative:controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|c:\\users\\yaros\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\github\\candyshop\\backend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|c:\\users\\yaros\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\github\\candyshop\\backend\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|solutionrelative:migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F824B2E0-0836-4577-A2BB-44D07368560C}|backend.csproj|c:\\users\\yaros\\onedrive\\\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\github\\candyshop\\backend\\extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -89,50 +89,11 @@
       "DocumentGroups": [
         {
           "DockedHeight": 236,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T15:23:35.165Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
-              "ToolTip": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "Controllers\\AdminController.cs",
-              "ViewState": "AQIAAFAAAAAAAAAAAAAswAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T16:12:37.255Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "Controllers\\LoginController.cs",
-              "ToolTip": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "Controllers\\LoginController.cs",
-              "ViewState": "AQIAAEwAAAAAAAAAAAAkwA4AAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T15:23:34.962Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "ProductsController.cs",
               "DocumentMoniker": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Controllers\\ProductsController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProductsController.cs",
@@ -140,12 +101,11 @@
               "RelativeToolTip": "Controllers\\ProductsController.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAA8AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T15:23:35.157Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T15:23:35.157Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "20240510114447_Initial migration.cs",
               "DocumentMoniker": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Migrations\\20240510114447_Initial migration.cs",
               "RelativeDocumentMoniker": "Migrations\\20240510114447_Initial migration.cs",
@@ -153,51 +113,76 @@
               "RelativeToolTip": "Migrations\\20240510114447_Initial migration.cs",
               "ViewState": "AQIAAB8AAAAAAAAAAAAQwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T16:23:09.842Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T16:23:09.842Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "20240511094932_AddDbTables.cs",
               "DocumentMoniker": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Migrations\\20240511094932_AddDbTables.cs",
               "RelativeDocumentMoniker": "Migrations\\20240511094932_AddDbTables.cs",
               "ToolTip": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Migrations\\20240511094932_AddDbTables.cs",
               "RelativeToolTip": "Migrations\\20240511094932_AddDbTables.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAQwBkAAABLAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAABLAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T16:23:15.952Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T16:23:15.952Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AppDbContextModelSnapshot.cs",
-              "DocumentMoniker": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Migrations\\AppDbContextModelSnapshot.cs",
-              "RelativeDocumentMoniker": "Migrations\\AppDbContextModelSnapshot.cs",
-              "ToolTip": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Migrations\\AppDbContextModelSnapshot.cs",
-              "RelativeToolTip": "Migrations\\AppDbContextModelSnapshot.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAQwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T16:24:31.113Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "CartItem.cs",
               "DocumentMoniker": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Models\\CartItem.cs",
               "RelativeDocumentMoniker": "Models\\CartItem.cs",
               "ToolTip": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Models\\CartItem.cs",
               "RelativeToolTip": "Models\\CartItem.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T15:23:35.178Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T15:23:35.178Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAzwAcAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T15:23:35.16Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "Models\\Product.cs",
+              "ToolTip": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Models\\Product.cs",
+              "RelativeToolTip": "Models\\Product.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T15:23:35.15Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Controllers\\AdminController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T16:12:37.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "OrderedItem.cs",
               "DocumentMoniker": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Models\\OrderedItem.cs",
               "RelativeDocumentMoniker": "Models\\OrderedItem.cs",
@@ -205,34 +190,43 @@
               "RelativeToolTip": "Models\\OrderedItem.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T15:23:35.174Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T15:23:35.174Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "Controllers\\LoginController.cs",
+              "ViewState": "AQIAAEwAAAAAAAAAAAAkwA4AAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T15:23:34.962Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "Product.cs",
-              "DocumentMoniker": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Models\\Product.cs",
-              "RelativeDocumentMoniker": "Models\\Product.cs",
-              "ToolTip": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Models\\Product.cs",
-              "RelativeToolTip": "Models\\Product.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAApAAAA",
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T15:23:35.15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T15:23:35.165Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Models\\User.cs",
-              "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAsAAAA",
+              "Title": "AppDbContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Migrations\\AppDbContextModelSnapshot.cs",
+              "ToolTip": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeToolTip": "Migrations\\AppDbContextModelSnapshot.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAQwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T15:23:35.16Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T16:24:31.113Z"
             },
             {
               "$type": "Document",
@@ -244,8 +238,7 @@
               "RelativeToolTip": "Extensions.cs",
               "ViewState": "AQIAAAcAAAAAAAAAAAAQwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T16:24:41.954Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T16:24:41.954Z"
             },
             {
               "$type": "Document",
@@ -257,8 +250,7 @@
               "RelativeToolTip": "WeatherForecast.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T15:23:35.185Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T15:23:35.185Z"
             },
             {
               "$type": "Document",
@@ -270,21 +262,19 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AQIAAD8AAAAAAAAAAAAAABkAAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T15:23:35.168Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T15:23:35.168Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 16,
-              "Title": "backend",
+              "Title": "backend.csproj",
               "DocumentMoniker": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\backend.csproj",
               "RelativeDocumentMoniker": "backend.csproj",
               "ToolTip": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\backend.csproj",
               "RelativeToolTip": "backend.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-05-24T15:45:02.736Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T15:45:02.736Z"
             },
             {
               "$type": "Document",
@@ -295,16 +285,7 @@
               "ToolTip": "C:\\Users\\yaros\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\CandyShop\\backend\\backend.csproj",
               "RelativeToolTip": "backend.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-05-24T15:59:20.595Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "WhenOpened": "2024-05-24T15:59:20.595Z"
             },
             {
               "$type": "Document",
@@ -316,8 +297,7 @@
               "RelativeToolTip": "Controllers\\UserController.cs",
               "ViewState": "AQIAADIAAAAAAAAAAAAgwCMAAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T15:23:35.153Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T15:23:35.153Z"
             },
             {
               "$type": "Document",
@@ -329,8 +309,7 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-24T15:23:35.171Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T15:23:35.171Z"
             },
             {
               "$type": "Document",
@@ -342,8 +321,7 @@
               "RelativeToolTip": "appsettings.Development.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-24T15:23:35.181Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T15:23:35.181Z"
             }
           ]
         },
