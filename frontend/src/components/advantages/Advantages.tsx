@@ -6,8 +6,8 @@ const Advantages = () => {
         <section className="advantages">
             <div className="advantages-inner">
                 <h2 className="advantages-title">
-                    Магазин Глейси – это онлайн и офлайн-магазин по продаже<br />
-                    мороженого собственного проиводства на развес
+                    Магазин Candy – это онлайн и офлайн-магазин по <br />продаже
+                    мороженого собственного проиводства
                 </h2>
                 <ul className="advantages-list">
                     <li className="advantages-item">

@@ -5,7 +5,7 @@ type CodeType = {
     code: string;
 }
 
-function Code({code}: CodeType) {
+function Code({ code }: CodeType) {
     return (
         <div className='code-container'>
             <h3>Код получения заказа</h3>

@@ -10,7 +10,7 @@
 }
 
 .popover-cart {
-    width: 441px;
+    width: 460px;
 }
 
 .popover-title {
@@ -34,11 +34,47 @@
 .popover-item {
     position: relative;
     display: grid;
-    grid-template-columns: 62px 164px 103px 16px;
+    grid-template-columns: 62px 100px 50px 75px 60px 16px;
     grid-template-areas:
-        "img title price button"
-        "img amount price button";
+        "img title decrease price increase button"
+        "img amount decrease price increase button";
 }
+
+.popover-button-decrease {
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    width: 40px;
+    height: 26px;
+    grid-area: decrease;
+    align-self: center;
+
+    &:hover {
+        background-color: rgb(255, 143, 143);
+        color: white;
+        transition: 0.2s all;
+    }
+}
+
+.popover-button-increase {
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    width: 40px;
+    height: 25px;
+
+    grid-area: increase;
+    align-self: center;
+
+    &:hover {
+        background-color: rgb(255, 143, 143);
+        color: white;
+        transition: 0.2s all;
+    }
+}
+
 
 .popover-item:not(:last-of-type) {
     margin-bottom: 24px;
@@ -78,6 +114,7 @@
 }
 
 .popover-item-button-close {
+    cursor: pointer;
     -ms-grid-row: 1;
     -ms-grid-row-span: 2;
     -ms-grid-column: 4;

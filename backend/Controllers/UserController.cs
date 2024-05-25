@@ -48,6 +48,7 @@ namespace backend.Controllers
             {
                 User = user,
                 Item = product,
+                CountInCart = 1,
             };
             _ctx.CartItems.Add(cartItem);
             await _ctx.SaveChangesAsync();
@@ -137,6 +138,30 @@ namespace backend.Controllers
                 .ToListAsync();
 
             return Ok(products);
+        }
+
+        [Route("change-cart-item-count")]
+        [HttpPost]
+        public async Task<IActionResult> ChangeCartItemCount(int productId, int newCount)
+        {
+            var user = GetCurrentUser();
+            if (user is null) return Unauthorized();
+
+            if (newCount <= 0)
+            {
+                return await RemoveFromCart(productId);
+            }
+
+            var cartItem = await _ctx.CartItems
+                .SingleOrDefaultAsync(ci => ci.Item.Id == productId);
+            if (cartItem is null) return ValidationProblem($"Could not find CartItem with productId = {productId}");
+
+            cartItem.CountInCart = newCount;
+
+            _ctx.CartItems.Update(cartItem);
+            await _ctx.SaveChangesAsync();
+
+            return Ok();
         }
 
         protected User? GetCurrentUser()

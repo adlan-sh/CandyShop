@@ -1,0 +1,230 @@
+.catalog-title {
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 46px;
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+.catalog-filters {
+    min-width: 807px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 98px;
+}
+
+.catalog-filter-group {
+    margin: 0;
+    margin-right: 24px;
+    padding: 0;
+    border: 0;
+}
+
+.catalog-filter-group:nth-child(3) {
+    margin: 0;
+}
+
+.catalog-filter-title {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0;
+    margin-left: 15px;
+    margin-bottom: 8px;
+}
+
+.select-control {
+    position: relative;
+    font-size: 14px;
+    line-height: 20px;
+    width: 196px;
+    padding: 8px 30px 8px 16px;
+    background: rgba(252, 252, 252, 0.3);
+    border: 0;
+    border-radius: 20px;
+    -webkit-appearance: none;
+    appearance: none;
+    margin-bottom: 16px;
+    background-image: url("../../images/Arrow-down.svg");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+}
+
+.select-control:hover {
+    background-color: rgba(252, 252, 252, 0.5);
+}
+
+.select-control:focus {
+    background-color: rgba(252, 252, 252, 0.4);
+    outline: 2px solid #FCFCFC;
+}
+
+.label-container {
+    display: flex;
+    flex-wrap: wrap;
+    background: rgba(252, 252, 252, 0.3);
+    border-radius: 20px;
+    padding: 8px 14px;
+}
+
+.radio {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 1px solid black;
+    border-radius: 50%;
+    top: 1px;
+}
+
+.radio-desc {
+    font-size: 14px;
+    line-height: 20px;
+    position: relative;
+    margin-left: 25px;
+}
+
+input[type="radio"]:checked~.radio-desc::before {
+    /* dot */
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: black;
+    top: 5px;
+    left: -19px;
+}
+
+label:hover .radio {
+    border: 1px solid #fcfcfc;
+}
+
+.label-container label:hover .radio-desc::before {
+    background-color: #fcfcfc;
+}
+
+input:disabled+.radio {
+    border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+label:not(:last-child) .radio-desc {
+    margin-right: 16px;
+}
+
+.catalog-filter-group label {
+    position: relative;
+}
+
+.catalog-filter-slider {
+    position: relative;
+    width: 196px;
+    background-color: rgba(252, 252, 252, 0.3);
+    border-radius: 20px;
+    min-height: 36px;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-area {
+    position: relative;
+    width: 164px;
+    outline: 1px solid rgba(34, 36, 40, 0.3);
+}
+
+.slider-selected-area {
+    position: absolute;
+    outline: 1px solid #565C66;
+}
+
+.slider-button {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 0;
+    border-radius: 50%;
+    background: #2D3440;
+    top: -8px;
+    left: -2px;
+}
+
+.slider-button::before {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border: 0;
+    border-radius: 50%;
+    background: #ffffff;
+    top: 6px;
+    left: 6.5px;
+}
+
+.slider-button:hover,
+.slider-button:focus {
+    background-color: #fcfcfc;
+}
+
+.slider-button:focus {
+    outline: 2px solid #2D3440;
+}
+
+.slider-button:hover::before,
+.slider-button:focus::before {
+    background-color: #2D3440;
+}
+
+.button-max {
+    left: 70px;
+}
+
+.catalog-filter-button {
+    align-self: flex-end;
+}
+
+.checkbox-desc {
+    font-size: 14px;
+    line-height: 20px;
+    margin-left: 25px;
+}
+
+label:not(:last-child) .checkbox-desc {
+    margin-right: 16px;
+}
+
+.checkbox-item,
+.checkbox-checked-item {
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+.checkbox-checked-item {
+    display: none;
+}
+
+input:checked~.checkbox-checked-item {
+    display: inline;
+}
+
+input:checked~.checkbox-item {
+    display: none;
+}
+
+label:hover .checkbox-item,
+label:hover .checkbox-checked-item {
+    color: #fcfcfc;
+}
+
+.checkbox-label-container label:nth-child(2) {
+    margin-right: 8px;
+}
+
+.catalog-filter-button {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 8px 53.5px;
+    background: rgba(252, 252, 252, 0.3);
+    outline: 2px solid #FCFCFC;
+    border-radius: 20px;
+}

@@ -53,5 +53,10 @@ div[id="root"] {
   top: 0px;
   left: 0px;
   transition: 0.5s all;
+}
 
+.main-container {
+  flex-grow: 1;
+  width: 1170px;
+  margin: 0 auto;
 }
