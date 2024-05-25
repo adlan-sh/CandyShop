@@ -16,13 +16,18 @@ namespace backend.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll(int page)
         {
             var products = await _ctx.Products
                 .Where(p => !p.Hidden)
+                .OrderBy(p => p.Id)
+                .Skip(page * ProductsPerPage)
+                .Take(ProductsPerPage)
                 .ToListAsync();
 
             return Ok(products);
         }
+
+        const int ProductsPerPage = 10;
     }
 }
