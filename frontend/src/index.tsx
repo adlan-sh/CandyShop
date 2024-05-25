@@ -5,11 +5,12 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Root from './routes/Root';
 import Catalog from './routes/Catalog';
 import Layout from './routes/Layout';
+import Payment from './routes/Payment';
 import App from './App';
 import './App.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import axios from 'axios';
-
+  
 axios.create({
   baseURL: "http://localhost:7292"
 })
@@ -29,7 +30,7 @@ const routers = createBrowserRouter([
       },
       {
         path: "/pay",
-        element: <App />
+        element: <Payment price={120} />
       }
     ]
   }
