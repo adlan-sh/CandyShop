@@ -10,14 +10,13 @@ function App() {
   return (
     <>
 <<<<<<< HEAD
-      {/* <Header />
+      { <Header />
       <Main />
 =======
       <Header />
 >>>>>>> 58b7bd8b69b491a4e968fb0fe9bbbecfa773dd98
       <Footer />
-      <Modal /> */}
-      <Payment price={120} />
+      <Modal />}
     </>
   );
 }
