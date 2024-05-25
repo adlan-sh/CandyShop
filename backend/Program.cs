@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
+using backend.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +14,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//var provider = builder.Services.BuildServiceProvider();
+builder.Services.AddHttpClient(); // это чтобы запросы на API юкассы отправлять
+
+builder.Services.AddSingleton<PayService>(); // сервис платежей
+
+var provider = builder.Services.BuildServiceProvider();
 var configuration = builder.Configuration;
 var cs = configuration.GetConnectionString("AppDbConnectionString");
 

@@ -1,5 +1,6 @@
 ﻿using backend.Data;
 using backend.Models;
+using backend.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,9 +14,11 @@ namespace backend.Controllers
     public class UserController : ControllerBase
     {
         private readonly AppDbContext _ctx;
-        public UserController(AppDbContext ctx)
+        private readonly PayService _payService;
+        public UserController(/*AppDbContext ctx,*/ PayService payService )
         {
-            _ctx = ctx;
+            //_ctx = ctx;
+            _payService = payService;
         }
 
         [Route("get-cart")]
@@ -70,19 +73,16 @@ namespace backend.Controllers
 
         [Route("pay")]
         [HttpPost]
-        public async Task<IActionResult> Pay(List<Product> products)
+        public async Task<IActionResult> Pay(List<Product> products, string paymentId)
         {
-            bool successfulPayment = false;
+            bool successfulPayment = _payService.CheckPayment(paymentId);
             var user = GetCurrentUser();
             if (user is null) return Unauthorized();
 
-            // payment logic here
-            // ......................
-            // ......................
             
             if (successfulPayment)
             {
-                // removing bought products from user's cart
+                //removing bought products from user's cart
                 // and adding them to ordered items list
                 foreach (var product in products)
                 {

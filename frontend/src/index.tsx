@@ -24,6 +24,10 @@ const routers = createBrowserRouter([
       {
         path: "/catalog",
         element: <Catalog />
+      },
+      {
+        path: "/pay",
+        element: <App />
       }
     ]
   }
