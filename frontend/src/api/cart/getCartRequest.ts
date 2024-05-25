@@ -1,14 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import axios from "../axios";
 
-function getCartRequest(ItemId: number) {
-    // const { data: value, error } = useQuery({
-    //     queryKey: ["getCartRequest"],
-    //     queryFn: () =>
-    //         axios.get("/api/cart")
-    // });
-    // const data = value?.data;
-    // return { data, error };
+const useGetCart = () => {
+    const { data, error: getCartError, isPending: IsPendingGetCart } = useQuery({
+        queryKey: ["getCartRequest"],
+        queryFn: () =>
+            axios.get("/api/user/get-cart")
+    });
+    return { data, getCartError, IsPendingGetCart }
 }
 
-export default getCartRequest;
+export default useGetCart;

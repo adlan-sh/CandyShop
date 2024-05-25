@@ -2,8 +2,13 @@ import "./header.scss";
 import Popover from '../popover/Popover';
 import { Link } from "react-router-dom";
 import getCartRequest from "../../api/cart/getCartRequest";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import useGetCart from "../../api/cart/getCartRequest";
+import useDeleteCartItem from "../../api/cart/deleteCartItem";
+import useChangeCartItemCount from "../../api/cart/changeCartItemCount";
+import { ChangeCartItemCountEnum } from "../../api/cart/cart.type";
+import useLogin from "../../api/user/login";
 
 const Button = ({ onClick }: { onClick: () => void }) => {
     return (
@@ -27,13 +32,47 @@ const Button2 = ({ onClick }: { onClick: () => void }) => {
     )
 }
 
-const Header = () => {
-    const { data, error } = useQuery({
-        queryKey: ["getCartRequest"],
-        queryFn: () =>
-            axios.get("/api/cart")
+const getTotalPrice = (data: { costPer100g: number, count: number }[]) => {
+    let totalPrice = 0;
+    data.forEach(element => {
+        totalPrice += element.costPer100g * element.count;
     });
+    return totalPrice;
+}
 
+const handleSubmit = async (e: any, login: any) => {
+    e.preventDefault();
+    const a = await login({ login: e.target[0].value, password: e.target[1].value })
+    console.log(a);
+}
+
+
+
+const Header = () => {
+    const { data, getCartError, IsPendingGetCart } = useGetCart();
+    const { mutate: deleteCartItem, error: deleteError, isPending } = useDeleteCartItem();
+    const { changeCartItemCount, IsPendingchangeCartItemCount, ErrorChangeCartItemCount } = useChangeCartItemCount();
+    const { login, getLoginError, IsPendingLogin } = useLogin();
+    const data1 = [{
+        id: 1,
+        name: "Малинка",
+        count: 5,
+        icon: "string",
+        costPer100g: 100,
+        category: "string",
+        tag: "tag",
+        hidden: false
+    },
+    {
+        id: 2,
+        name: "Фисташка",
+        count: 10,
+        icon: "string",
+        costPer100g: 200,
+        category: "string",
+        tag: "tag",
+        hidden: false
+    }]
 
 
 
@@ -82,8 +121,8 @@ const Header = () => {
                         <Popover trigger={Button}>
                             <div className="popover popover-entry ">
                                 <h3 className="popover-title">Личный кабинет</h3>
-                                <form className="popover-entry-form">
-                                    <input type="email" name="email" placeholder="email@example.com" />
+                                <form onSubmit={(e) => handleSubmit(e, login)} className="popover-entry-form">
+                                    <input name="email" placeholder="email@example.com" />
                                     <input type="password" name="password" placeholder="Пароль" />
                                     <div className="popover-entry-info">
                                         <button className="additional-button popover-button" type="submit">Войти</button>
@@ -95,34 +134,31 @@ const Header = () => {
                         </Popover>
                     </li>
                     <li className="navigation-item">
-                        {/* <div className="popover popover-cart-empty popover-close">
-                            <h3 className="popover-title">Ваша корзина пока пуста</h3>
-                        </div> */}
                         <Popover trigger={Button2}>
-                            <div className="popover popover-cart">
-                                <h3 className="popover-title">Корзина</h3>
-                                <ul className="popover-list">
-
-                                    <li className="popover-item">
-                                        <img src="/images/circle-raspberry-ice-cream.jpg" width="46" height="46" alt="малиновое мороженое" />
-                                        <p className="popover-item-title">Малинка</p>
-                                        <p className="popover-item-amount">1 кг х 310 Р</p>
-                                        <p className="popover-item-price">310 Р</p>
-                                        <button className="popover-item-button-close" type="button"></button>
-                                    </li>
-                                    <li className="popover-item">
-                                        <img src="/images/circle-bubble-gum-ice-cream.jpg" width="46" height="46" alt="Бабл-гам мороженое" />
-                                        <p className="popover-item-title">Бабл-гам</p>
-                                        <p className="popover-item-amount">1,5 кг х 320 Р</p>
-                                        <p className="popover-item-price">480 Р</p>
-                                        <button className="popover-item-button-close" type="button"></button>
-                                    </li>
-                                </ul>
-                                <div className="popover-cart-info">
-                                    <button className="additional-button popover-button" type="button">Оформить заказ</button>
-                                    <p className="popover-result">Итого: 790 Р</p>
-                                </div>
-                            </div>
+                            {true ?
+                                <div className="popover popover-cart">
+                                    <h3 className="popover-title">Корзина</h3>
+                                    <ul className="popover-list">
+                                        {data1.map(cartItem =>
+                                            <li className="popover-item">
+                                                <img src="/images/circle-raspberry-ice-cream.jpg" width="46" height="46" alt="малиновое мороженое" />
+                                                <p className="popover-item-title">{cartItem.name}</p>
+                                                <button onClick={() => changeCartItemCount({ type: ChangeCartItemCountEnum.decrease, cartItemId: cartItem.id })} className="popover-button-decrease">-</button>
+                                                <p className="popover-item-amount">{cartItem.count * 100 / 1000} кг х {cartItem.costPer100g * 10} Р</p>
+                                                <p className="popover-item-price">{cartItem.count * cartItem.costPer100g} Р</p>
+                                                <button onClick={() => changeCartItemCount({ type: ChangeCartItemCountEnum.increase, cartItemId: cartItem.id })} className="popover-button-increase">+</button>
+                                                <button onClick={() => deleteCartItem(cartItem.id)} className="popover-item-button-close" type="button"></button>
+                                            </li>
+                                        )}
+                                    </ul>
+                                    <div className="popover-cart-info">
+                                        <button className="additional-button popover-button" type="button">Оформить заказ</button>
+                                        <p className="popover-result">Итого: {getTotalPrice(data1)} Р</p>
+                                    </div>
+                                </div> :
+                                <div className="popover popover-cart-empty">
+                                    <h3 className="popover-title">Ваша корзина пока пуста</h3>
+                                </div>}
                         </Popover>
                     </li>
                 </ul>

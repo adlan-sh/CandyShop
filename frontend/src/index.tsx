@@ -7,6 +7,11 @@ import Catalog from './routes/Catalog';
 import Layout from './routes/Layout';
 import './App.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import axios from 'axios';
+
+axios.create({
+  baseURL: "http://localhost:7292"
+})
 
 
 const routers = createBrowserRouter([

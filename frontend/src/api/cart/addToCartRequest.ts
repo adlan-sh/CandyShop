@@ -1,15 +1,18 @@
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import axios from "../axios";
 
 type Item = {
     id: number;
 }
 
-async function addToCartRequest(ItemId: number) {
-    // const {} = useQuery({
-    //     queryKey: ["addToCartRequest"],
-    //     queryFn: () => 
-    //         axios.post("/api/cart", { id: ItemId })
-    // });
+const useAddCartItem = () => {
+    const { mutate, error: addCartItemError, isPending } = useMutation({
+        mutationFn: (productId: number) =>
+            axios.post("/api/user/add-to-cart", { data: { productId } })
+    });
+
+    return { mutate, addCartItemError, isPending };
 }
+
+export default useAddCartItem;
 
