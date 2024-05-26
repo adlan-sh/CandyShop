@@ -8,3 +8,9 @@ export type ProductType = {
     tag: string,
     hidden: boolean
 }
+
+export type PaginationProductType = {
+    products: ProductType[],
+    totalPages: number,
+    currentPage: number
+};

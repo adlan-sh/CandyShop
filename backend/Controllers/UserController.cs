@@ -15,9 +15,9 @@ namespace backend.Controllers
     {
         private readonly AppDbContext _ctx;
         private readonly PayService _payService;
-        public UserController(/*AppDbContext ctx,*/ PayService payService )
+        public UserController(AppDbContext ctx, PayService payService )
         {
-            //_ctx = ctx;
+            _ctx = ctx;
             _payService = payService;
         }
 
@@ -29,7 +29,7 @@ namespace backend.Controllers
             var user = GetCurrentUser();
             if (user is null) return Unauthorized();
 
-            var products = await _ctx.CartItems.Where(ci => ci.User.Id == user.Id).Select(ci => ci.Item).ToListAsync();
+            var products = await _ctx.CartItems.Where(ci => ci.User.Id == user.Id).Select(ci => new { ci.Item, ci.CountInCart }).ToListAsync();
 
             return Ok(products);
         }

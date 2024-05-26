@@ -24,10 +24,15 @@ namespace backend.Controllers
                 .Skip(page * ProductsPerPage)
                 .Take(ProductsPerPage)
                 .ToListAsync();
-
-            return Ok(products);
+            var paginationObject = new
+            {
+                products,
+                totalPages = _ctx.Products.Count()/ProductsPerPage,
+                currentPage = page
+            };
+            return Ok(paginationObject);
         }
 
-        const int ProductsPerPage = 10;
+        const int ProductsPerPage = 4;
     }
 }

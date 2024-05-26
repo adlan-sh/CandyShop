@@ -7,13 +7,14 @@ import axios from "axios";
 import useGetCart from "../../api/cart/getCartRequest";
 import useDeleteCartItem from "../../api/cart/deleteCartItem";
 import useChangeCartItemCount from "../../api/cart/changeCartItemCount";
-import { ChangeCartItemCountEnum } from "../../api/cart/cart.type";
+import { CartItem, ChangeCartItemCountEnum } from "../../api/cart/cart.type";
 import useLogin from "../../api/user/login";
+import { Loader2 } from "lucide-react";
 
 const Button = ({ onClick }: { onClick: () => void }) => {
     return (
         <button onClick={onClick} className="navigation-link navigation-link-with-img" >
-            <svg className="navigation-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.2.87c0-.36.3-.66.68-.66h3a2.17 2.17 0 0 1 2.16 2.17v10.5a2.17 2.17 0 0 1-2.16 2.16h-3a.67.67 0 0 1 0-1.33h3a.83.83 0 0 0 .83-.84V2.38a.83.83 0 0 0-.83-.83h-3A.67.67 0 0 1 9.2.87ZM5.66 3.4a.67.67 0 0 1 .95 0l3.74 3.75a.66.66 0 0 1 0 .95L6.6 11.85a.67.67 0 1 1-.95-.95l2.62-2.6H.87a.67.67 0 0 1 0-1.34h7.4L5.65 4.35a.67.67 0 0 1 0-.95Z"
+            <svg className="navigation-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M9.2.87c0-.36.3-.66.68-.66h3a2.17 2.17 0 0 1 2.16 2.17v10.5a2.17 2.17 0 0 1-2.16 2.16h-3a.67.67 0 0 1 0-1.33h3a.83.83 0 0 0 .83-.84V2.38a.83.83 0 0 0-.83-.83h-3A.67.67 0 0 1 9.2.87ZM5.66 3.4a.67.67 0 0 1 .95 0l3.74 3.75a.66.66 0 0 1 0 .95L6.6 11.85a.67.67 0 1 1-.95-.95l2.62-2.6H.87a.67.67 0 0 1 0-1.34h7.4L5.65 4.35a.67.67 0 0 1 0-.95Z"
                 fill="#2D3440" />
             </svg>
             Вход
@@ -32,10 +33,10 @@ const Button2 = ({ onClick }: { onClick: () => void }) => {
     )
 }
 
-const getTotalPrice = (data: { costPer100g: number, count: number }[]) => {
+const getTotalPrice = (data: CartItem[]) => {
     let totalPrice = 0;
-    data.forEach(element => {
-        totalPrice += element.costPer100g * element.count;
+    data?.forEach(element => {
+        totalPrice += element.item.costPer100g * element.countInCart;
     });
     return totalPrice;
 }
@@ -48,31 +49,10 @@ const handleSubmit = async (e: any, login: any) => {
 
 
 const Header = () => {
-    const { data, getCartError, IsPendingGetCart } = useGetCart();
-    const { mutate: deleteCartItem, error: deleteError, isPending } = useDeleteCartItem();
-    const { changeCartItemCount, IsPendingchangeCartItemCount, ErrorChangeCartItemCount } = useChangeCartItemCount();
+    const { data, getCartError, IsPendingGetCart, RefetchCart } = useGetCart();
+    const { mutate: deleteCartItem, error: deleteError, isPending } = useDeleteCartItem(RefetchCart);
+    const { changeCartItemCount, IsPendingchangeCartItemCount, ErrorChangeCartItemCount } = useChangeCartItemCount(RefetchCart);
     const { login, getLoginError, IsPendingLogin } = useLogin();
-    const data1 = [{
-        id: 1,
-        name: "Малинка",
-        count: 5,
-        icon: "string",
-        costPer100g: 100,
-        category: "string",
-        tag: "tag",
-        hidden: false
-    },
-    {
-        id: 2,
-        name: "Фисташка",
-        count: 10,
-        icon: "string",
-        costPer100g: 200,
-        category: "string",
-        tag: "tag",
-        hidden: false
-    }]
-
 
 
     return (
@@ -105,7 +85,7 @@ const Header = () => {
                     </li>
                     <li className="navigation-item">
                         <a className="navigation-link navigation-link-search" href="#" >
-                            <svg className="navigation-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 7.2a5.3 5.3 0 1 1 10.6 0 5.3 5.3 0 0 1-10.7 0Zm9.5 5.2a6.7 6.7 0 1 1 1-1l2.7 2.9a.7.7 0 1 1-1 1l-2.7-2.9Z"
+                            <svg className="navigation-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M2 7.2a5.3 5.3 0 1 1 10.6 0 5.3 5.3 0 0 1-10.7 0Zm9.5 5.2a6.7 6.7 0 1 1 1-1l2.7 2.9a.7.7 0 1 1-1 1l-2.7-2.9Z"
                                 fill="#2D3440" /></svg>
                             <span className="visually-hidden">Поиск</span>
                         </a>
@@ -134,25 +114,25 @@ const Header = () => {
                     </li>
                     <li className="navigation-item">
                         <Popover trigger={Button2}>
-                            {true ?
+                            {data ?
                                 <div className="popover popover-cart">
                                     <h3 className="popover-title">Корзина</h3>
                                     <ul className="popover-list">
-                                        {data1.map(cartItem =>
-                                            <li className="popover-item">
-                                                <img src="/images/circle-raspberry-ice-cream.jpg" width="46" height="46" alt="малиновое мороженое" />
-                                                <p className="popover-item-title">{cartItem.name}</p>
-                                                <button onClick={() => changeCartItemCount({ type: ChangeCartItemCountEnum.decrease, cartItemId: cartItem.id })} className="popover-button-decrease">-</button>
-                                                <p className="popover-item-amount">{cartItem.count * 100 / 1000} кг х {cartItem.costPer100g * 10} Р</p>
-                                                <p className="popover-item-price">{cartItem.count * cartItem.costPer100g} Р</p>
-                                                <button onClick={() => changeCartItemCount({ type: ChangeCartItemCountEnum.increase, cartItemId: cartItem.id })} className="popover-button-increase">+</button>
-                                                <button onClick={() => deleteCartItem(cartItem.id)} className="popover-item-button-close" type="button"></button>
+                                        {data?.map((cartItem: CartItem) =>
+                                            <li key={cartItem.item.id} className="popover-item">
+                                                <img src={cartItem.item.icon} width="46" height="46" alt="малиновое мороженое" />
+                                                <p className="popover-item-title">{cartItem.item.name}</p>
+                                                <button onClick={() => changeCartItemCount({ newCount: cartItem.countInCart - 1, productId: cartItem.item.id })} className="popover-button-decrease">{IsPendingchangeCartItemCount ? <Loader2 /> : "-"}</button>
+                                                <p className="popover-item-amount">{cartItem.countInCart * 100 / 1000} кг х {cartItem.item.costPer100g * 10} Р</p>
+                                                <p className="popover-item-price">{cartItem.countInCart * cartItem.item.costPer100g} Р</p>
+                                                <button onClick={() => changeCartItemCount({ newCount: cartItem.countInCart + 1, productId: cartItem.item.id })} className="popover-button-increase">{IsPendingchangeCartItemCount ? <Loader2 /> : "+"}</button>
+                                                <button onClick={() => deleteCartItem(cartItem.item.id)} className="popover-item-button-close" type="button"></button>
                                             </li>
                                         )}
                                     </ul>
                                     <div className="popover-cart-info">
                                         <button className="additional-button popover-button" type="button">Оформить заказ</button>
-                                        <p className="popover-result">Итого: {getTotalPrice(data1)} Р</p>
+                                        <p className="popover-result">Итого: {getTotalPrice(data!)} Р</p>
                                     </div>
                                 </div> :
                                 <div className="popover popover-cart-empty">
