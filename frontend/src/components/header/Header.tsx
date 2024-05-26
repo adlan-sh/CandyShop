@@ -42,8 +42,7 @@ const getTotalPrice = (data: { costPer100g: number, count: number }[]) => {
 
 const handleSubmit = async (e: any, login: any) => {
     e.preventDefault();
-    const a = await login({ login: e.target[0].value, password: e.target[1].value })
-    console.log(a);
+    const a = await login({ login: e.target[0].value, password: e.target[1].value });
 }
 
 
