@@ -4,7 +4,7 @@ import "./catalogFilters.scss";
 const CatalogFilters = () => {
     return (
         <form className="catalog-filters" action="https://echo.htmlacademy.ru" method="get">
-            <fieldset className="catalog-filter-group">
+            {/* <fieldset className="catalog-filter-group">
                 <legend className="catalog-filter-title">Сортировка:</legend>
                 <select className="select-control" name="sorted-by">
                     <option value="popular" selected>по популярности</option>
@@ -87,7 +87,7 @@ const CatalogFilters = () => {
                     </label>
                 </div>
             </fieldset>
-            <button className="transparent-button catalog-filter-button" type="submit">Применить</button>
+            <button className="transparent-button catalog-filter-button" type="submit">Применить</button> */}
         </form>
     )
 }

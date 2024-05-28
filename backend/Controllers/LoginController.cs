@@ -28,17 +28,27 @@ namespace backend.Controllers
         public async Task<IActionResult> Login(string login, string password, bool register, string? email, string? username)
         {
             if (register) return await Register(login, password, email, username);
+            else
+            {
+                var user = await _ctx.Users.FirstOrDefaultAsync(u => u.Login == login);
+                if (user is null)
+                    return NotFound("User not found");
 
-            var user = await _ctx.Users.FirstOrDefaultAsync(u => u.Login == login);
-            if (user is null)
-                return NotFound("User not found");
+                if (user.Password != password)
+                    return ValidationProblem("Wrong password.");
 
-            if (user.Password != password)
-                return ValidationProblem("Wrong password.");
+                var token = GenerateToken(user);
 
-            var token = GenerateToken(user);
+                var userReturn = new
+                {
+                    token,
+                    name = user.Username
+                };
 
-            return Ok(token);
+                return Ok(userReturn);
+            }
+
+
         }
 
         
@@ -60,7 +70,13 @@ namespace backend.Controllers
 
             var token = GenerateToken(user);
 
-            return Ok(token);
+            var userReturn = new
+            {
+                token,
+                name = username
+            };
+
+            return Ok(userReturn);
         }
 
         private string GenerateToken(User user)

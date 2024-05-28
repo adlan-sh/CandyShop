@@ -7,6 +7,12 @@
 .navigation-logo {
     position: absolute;
     top: 25px;
+
+    &:hover {
+        transition: 0.2s all;
+        fill: currentColor;
+        color: white;
+    }
 }
 
 .navigation-list {

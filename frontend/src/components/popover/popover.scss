@@ -281,6 +281,18 @@
     text-decoration: none;
     color: #2D3440;
     border-bottom: 1px solid #2D3440;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    text-align: start;
+    border-radius: 10px;
+    padding: 5px;
+
+    &:hover {
+        background-color: rgb(255, 152, 152);
+        color: white;
+
+    }
 }
 
 .popover-cart-empty {

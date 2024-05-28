@@ -35,6 +35,23 @@ namespace backend.Controllers
             return Ok(products);
         }
 
+        [Route("get-user")]
+        //[Authorize]
+        [HttpGet]
+        public async Task<IActionResult> GetUser()
+        {
+            var user = await GetCurrentUser();
+            if (user is null) return Unauthorized();
+
+            var returnUserData = new
+            {
+                name = user.Username,
+                email = user.Email
+            };
+
+            return Ok(returnUserData);
+        }
+
         [Route("add-to-cart")]
         [HttpPost]
         public async Task<IActionResult> AddToCart(int productId)

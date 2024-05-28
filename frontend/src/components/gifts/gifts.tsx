@@ -6,7 +6,7 @@ import marshmallow from "../../images/marshmallow.png";
 const Gifts = () => {
     return (
         <section className="gifts-section">
-            <h2 className="gifts-section-title">Заказывайте мороженое<br /> и получайте подарки!</h2>
+            {/* <h2 className="gifts-section-title">Заказывайте мороженое<br /> и получайте подарки!</h2>
             <ul className="gifts-list">
                 <li className="gift-item">
                     <h3 className="gift-title">Малинка даром!</h3>
@@ -29,7 +29,7 @@ const Gifts = () => {
                     <button className="main-button gift-button" type="button">Хочу подарок</button>
                     <img className="gift-img-marshmallow" src={marshmallow} width="232" height="359" alt="маршмеллоу" />
                 </li>
-            </ul>
+            </ul> */}
         </section>
     )
 }
