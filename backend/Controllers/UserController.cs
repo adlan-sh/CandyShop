@@ -3,6 +3,7 @@ using backend.Models;
 using backend.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
@@ -26,7 +27,7 @@ namespace backend.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCartItems()
         {
-            var user = GetCurrentUser();
+            var user = await GetCurrentUser();
             if (user is null) return Unauthorized();
 
             var products = await _ctx.CartItems.Where(ci => ci.User.Id == user.Id).Select(ci => new { ci.Item, ci.CountInCart }).ToListAsync();
@@ -38,19 +39,29 @@ namespace backend.Controllers
         [HttpPost]
         public async Task<IActionResult> AddToCart(int productId)
         {
-            var user = GetCurrentUser();
+            var user = await GetCurrentUser();
             if (user is null) return Unauthorized();
 
             var product = await _ctx.Products.FirstOrDefaultAsync(p => p.Id == productId);
             if (product is null) return ValidationProblem($"Product with ID {productId} does not exist.");
 
-            var cartItem = new CartItem
+            var existingCartItem = await _ctx.CartItems.FirstOrDefaultAsync(ci => ci.Item.Id == product.Id);
+            if (existingCartItem != null)
             {
-                User = user,
-                Item = product,
-                CountInCart = 1,
-            };
-            _ctx.CartItems.Add(cartItem);
+                existingCartItem.CountInCart++;
+                _ctx.CartItems.Update(existingCartItem);
+            }
+            else
+            {
+                var cartItem = new CartItem
+                {
+                    User = user,
+                    Item = product,
+                    CountInCart = 1,
+                };
+                _ctx.CartItems.Add(cartItem);
+            }
+
             await _ctx.SaveChangesAsync();
 
             return Ok();
@@ -60,7 +71,7 @@ namespace backend.Controllers
         [HttpDelete]
         public async Task<IActionResult> RemoveFromCart(int productId)
         {
-            var user = GetCurrentUser();
+            var user = await GetCurrentUser();
             if (user is null) return Unauthorized();
 
             var cartItem = await _ctx.CartItems.FirstOrDefaultAsync(ci => ci.User.Id == user.Id && ci.Item.Id == productId);
@@ -77,7 +88,7 @@ namespace backend.Controllers
         public async Task<IActionResult> Pay(List<Product> products, string paymentId)
         {
             bool successfulPayment = _payService.CheckPayment(paymentId);
-            var user = GetCurrentUser();
+            var user = await GetCurrentUser();
             if (user is null) return Unauthorized();
 
             
@@ -110,26 +121,24 @@ namespace backend.Controllers
         [HttpGet]
         public async Task<IActionResult> GetPersonalCode()
         {
-            var user = GetCurrentUser();
+            var user = await GetCurrentUser();
             if (user is null) return Unauthorized();
 
-            var dbUser = await _ctx.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
-            if (dbUser is null) return NotFound($"Could not find user with ID {user.Id} in the database.");
             var currentDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-            if (dbUser.PersonalCodeGenDate != currentDate)
+            if (user.PersonalCodeGenDate != currentDate)
             {
-                dbUser.PersonalCodeGenDate = currentDate;
-                dbUser.PersonalCode = dbUser.GeneratePersonalCode();
+                user.PersonalCodeGenDate = currentDate;
+                user.PersonalCode = user.GeneratePersonalCode();
             }
 
-            return Ok(dbUser.PersonalCode);
+            return Ok(user.PersonalCode);
         }
 
         [Route("get-pending-products")]
         [HttpGet]
         public async Task<IActionResult> GetPendingProducts()
         {
-            var user = GetCurrentUser();
+            var user = await GetCurrentUser();
             if (user is null) return Unauthorized();
 
             var products = await _ctx.OrderedItems
@@ -144,7 +153,7 @@ namespace backend.Controllers
         [HttpPost]
         public async Task<IActionResult> ChangeCartItemCount(int productId, int newCount)
         {
-            var user = GetCurrentUser();
+            var user = await GetCurrentUser();
             if (user is null) return Unauthorized();
 
             if (newCount <= 0)
@@ -164,24 +173,18 @@ namespace backend.Controllers
             return Ok();
         }
 
-        protected User? GetCurrentUser()
+        protected async Task<User?> GetCurrentUser()
         {
             if (HttpContext.User.Identity is ClaimsIdentity identity)
             {
                 var userClaims = identity.Claims;
-                var username = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.GivenName);
+                var userIdString = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.NameIdentifier)?.Value!;
 
-                if (username is not null)
+                if (!string.IsNullOrEmpty(userIdString))
                 {
-                    return new User
-                    {
-                        Username = username.Value,
-                        Email = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.Email)?.Value!,
-                        Id = int.Parse(userClaims.FirstOrDefault(o => o.Type == ClaimTypes.NameIdentifier)?.Value!),
-                        Role = Enum.Parse<UserRole>(userClaims.FirstOrDefault(o => o.Type == ClaimTypes.Role)?.Value!),
-                        Login = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.Name)?.Value!,
-                        Password = "Hidden.",
-                    };
+                    var userId = int.Parse(userIdString);
+                    var user = await _ctx.Users.FirstOrDefaultAsync(u => u.Id == userId);
+                    return user;
                 }
             }
 

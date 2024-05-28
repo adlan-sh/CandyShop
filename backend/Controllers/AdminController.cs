@@ -21,7 +21,7 @@ namespace backend.Controllers
         [HttpPost]
         public async Task<IActionResult> AddProduct(Product product)
         {
-            var admin = GetAdmin();
+            var admin = await GetAdmin();
             if (admin is null) return Unauthorized();
 
             _ctx.Products.Add(product);
@@ -34,7 +34,7 @@ namespace backend.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateProduct(Product product)
         {
-            var admin = GetAdmin();
+            var admin = await GetAdmin();
             if (admin is null) return Unauthorized();
 
             _ctx.Products.Update(product);
@@ -47,7 +47,7 @@ namespace backend.Controllers
         [HttpPut]
         public async Task<IActionResult> RemoveProduct(int productId)
         {
-            var admin = GetAdmin();
+            var admin = await GetAdmin();
             if (admin is null) return Unauthorized();
 
             var product = await _ctx.Products.FirstOrDefaultAsync(p => p.Id == productId);
@@ -64,7 +64,7 @@ namespace backend.Controllers
         [HttpGet]
         public async Task<IActionResult> GetHiddenProducts()
         {
-            var admin = GetAdmin();
+            var admin = await GetAdmin();
             if (admin is null) return Unauthorized();
 
             var products = await _ctx.Products
@@ -74,7 +74,7 @@ namespace backend.Controllers
             return Ok(products);
         }
 
-        protected User? GetAdmin()
+        protected async Task<User?> GetAdmin()
         {
             if (HttpContext.User.Identity is ClaimsIdentity identity)
             {
@@ -83,18 +83,16 @@ namespace backend.Controllers
                 if (userRoleStr is not null)
                 {
                     var userRole = Enum.Parse<UserRole>(userRoleStr.Value);
-
                     if (userRole == UserRole.Admin)
                     {
-                        return new User
+                        var userIdString = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.NameIdentifier)?.Value!;
+
+                        if (!string.IsNullOrEmpty(userIdString))
                         {
-                            Username = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.GivenName)?.Value,
-                            Email = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.Email)?.Value!,
-                            Id = int.Parse(userClaims.FirstOrDefault(o => o.Type == ClaimTypes.NameIdentifier)?.Value!),
-                            Role = userRole,
-                            Login = userClaims.FirstOrDefault(o => o.Type == ClaimTypes.Name)?.Value!,
-                            Password = "Hidden.",
-                        };
+                            var userId = int.Parse(userIdString);
+                            var user = await _ctx.Users.FirstOrDefaultAsync(u => u.Id == userId);
+                            return user;
+                        }
                     }
                 }
             }
