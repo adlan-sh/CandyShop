@@ -11,18 +11,17 @@ import { CartItem, ChangeCartItemCountEnum } from "../../api/cart/cart.type";
 import useLogin from "../../api/user/login";
 import { Loader2 } from "lucide-react";
 import { useContext, useState } from "react";
-import Context from "../..";
 import useGetUser from "../../api/user/getUser";
+import { useAppContext } from "../..";
 
 const Button = ({ onClick }: { name: string, onClick?: () => void, }) => {
-    const user = useContext(Context)
     const { data } = useGetUser();
     return (
         <button onClick={onClick} className="navigation-link navigation-link-with-img" >
             <svg className="navigation-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M9.2.87c0-.36.3-.66.68-.66h3a2.17 2.17 0 0 1 2.16 2.17v10.5a2.17 2.17 0 0 1-2.16 2.16h-3a.67.67 0 0 1 0-1.33h3a.83.83 0 0 0 .83-.84V2.38a.83.83 0 0 0-.83-.83h-3A.67.67 0 0 1 9.2.87ZM5.66 3.4a.67.67 0 0 1 .95 0l3.74 3.75a.66.66 0 0 1 0 .95L6.6 11.85a.67.67 0 1 1-.95-.95l2.62-2.6H.87a.67.67 0 0 1 0-1.34h7.4L5.65 4.35a.67.67 0 0 1 0-.95Z"
                 fill="#2D3440" />
             </svg>
-            {user?.name ? user.name : "Войти"}
+            {data?.name ? data.name : "Войти"}
         </button>
     )
 }
@@ -56,15 +55,13 @@ const handleRegister = async (e: any, login: any) => {
     const a = await login({ login: e.target[0].value, password: e.target[1].value, register: true, email: e.target[3].value, username: e.target[2].value });
 }
 
-
-
 const Header = () => {
-    const { data, getCartError, IsPendingGetCart, RefetchCart } = useGetCart();
+    const { auth, toggleAuth } = useAppContext();
+    const { data, getCartError, IsPendingGetCart, RefetchCart } = useGetCart(auth);
     const { mutate: deleteCartItem, error: deleteError, isPending } = useDeleteCartItem(RefetchCart);
     const { changeCartItemCount, IsPendingchangeCartItemCount, ErrorChangeCartItemCount } = useChangeCartItemCount(RefetchCart);
-    const { login, getLoginError, IsPendingLogin } = useLogin();
+    const { login, getLoginError, IsPendingLogin } = useLogin(toggleAuth);
     const [isLoginPopup, setIsLoginPopup] = useState(true);
-
 
     return (
         <header>

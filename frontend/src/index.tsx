@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useCallback, useContext, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
@@ -29,17 +29,35 @@ const routers = createBrowserRouter([
   }
 ])
 
-type ContextType = {
-  isAuth: boolean;
-  name: string
-}
-const user = {
-  isAuth: false,
-  name: ""
-}
+const useUserContext = () => {
+  const [auth, isAuth] = useState(false);
+  // const first = useContext(Context);
+  const toggleAuth = useCallback((boolean: boolean) => {
+    isAuth(boolean);
+  }, []);
 
-const Context = createContext<ContextType>(user);
+  return {
+    toggleAuth,
+    auth
+  }
+}
 const queryClient = new QueryClient();
+
+
+const Context = React.createContext({
+  auth: false,
+  toggleAuth: (boolean: boolean) => { }
+});
+export const AppContextProvider = ({ children, ...props }: any) => {
+  const context = useUserContext();
+  return <Context.Provider value={context}>{children}</Context.Provider>;
+};
+
+export function useAppContext() {
+  const context = React.useContext(Context);
+  if (!context) throw new Error('Use app context within provider!');
+  return context;
+}
 
 const root = ReactDOM
   .createRoot(
@@ -47,16 +65,16 @@ const root = ReactDOM
   );
 root.render(
   <React.StrictMode>
-    <Context.Provider value={user}>
+    <AppContextProvider>
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={routers} />
         <ToastContainer />
 
       </QueryClientProvider>
-    </Context.Provider>
+    </AppContextProvider>
   </React.StrictMode>
 );
 
 reportWebVitals();
 
-export default Context;
+export default useUserContext;

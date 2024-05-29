@@ -1,8 +1,8 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "../axios";
 import { useContext } from "react";
-import Context from "../..";
 import { toast } from "react-toastify";
+import { useAppContext } from "../..";
 
 type AuthRequestType = {
     login?: string;
@@ -12,8 +12,7 @@ type AuthRequestType = {
     username?: string;
 }
 
-const useLogin = () => {
-    const user = useContext(Context)
+const useLogin = (toggleAuth: any) => {
 
     const { data, mutate: login, error: getLoginError, isPending: IsPendingLogin } = useMutation({
         mutationFn: async ({ login, password, register, email, username }: AuthRequestType) => {
@@ -21,10 +20,11 @@ const useLogin = () => {
             const res = await axios.post(`/api/login?login=${login}&password=${password}&register=${register}${email ? `&email=${email}` : ""}${username ? `&username=${username}` : ""}`);
             register ? toast("Вы успешно зарегистрировались!", { type: "success" }) : toast(`Вы вошли в аккаунт ${res.data.name}`, { type: "success" });
             console.log(res.data);
-            user.name = res.data.name;
+
+            toggleAuth(true);
+
             localStorage.setItem("token", res.data.token)
         },
-
     });
     return { login, getLoginError, IsPendingLogin, }
 }

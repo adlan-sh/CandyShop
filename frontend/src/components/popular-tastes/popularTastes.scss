@@ -18,6 +18,7 @@
 
 .popular-tastes-main-title {
     margin-bottom: 107px;
+    margin-top: 100px;
 }
 
 .popular-tastes-item img {
@@ -63,6 +64,12 @@
     padding: 0;
     color: #fcfcfc;
     margin-bottom: 16px;
+    border: none;
+
+    &:hover {
+        background-color: #ff7799;
+        transition: 0.2s all;
+    }
 }
 
 .popular-tastes-icon {

@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import Context from "../..";
 import { useQuery } from "@tanstack/react-query";
 import axios from "../axios";
 
@@ -9,16 +8,15 @@ type UserType = {
 }
 
 const useGetUser = () => {
-    const user = useContext(Context);
 
     const { data, error: getUserError, isPending: IsPendingGetUser } = useQuery({
         queryKey: ["getUser"],
         queryFn: async () => {
             const a = await axios.get<UserType>(`/api/user/get-user`,
                 { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
-
             );
-            user.name = a.data.name;
+            // user.name = a.data.name;
+            // user.isAuth = true;
             return a.data;
         },
     });
