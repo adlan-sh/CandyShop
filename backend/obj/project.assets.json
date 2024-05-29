@@ -1278,11 +1278,11 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore/8.0.5": {
+      "Microsoft.EntityFrameworkCore/8.0.6": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "8.0.5",
-          "Microsoft.EntityFrameworkCore.Analyzers": "8.0.5",
+          "Microsoft.EntityFrameworkCore.Abstractions": "8.0.6",
+          "Microsoft.EntityFrameworkCore.Analyzers": "8.0.6",
           "Microsoft.Extensions.Caching.Memory": "8.0.0",
           "Microsoft.Extensions.Logging": "8.0.0"
         },
@@ -1300,7 +1300,7 @@
           "buildTransitive/net8.0/Microsoft.EntityFrameworkCore.props": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Abstractions/8.0.5": {
+      "Microsoft.EntityFrameworkCore.Abstractions/8.0.6": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
@@ -1313,7 +1313,7 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/8.0.5": {
+      "Microsoft.EntityFrameworkCore.Analyzers/8.0.6": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/_._": {}
@@ -4902,10 +4902,10 @@
         "microsoft.dotnet.scaffolding.shared.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore/8.0.5": {
-      "sha512": "sqpDZgfzmTPXy/jCekqTaPDwqRDjtdGmIL+eqFfXtVAoH4AanWjeyxQ1ej3uVnTQO6f23+m9+ggJDVcgyPJxcA==",
+    "Microsoft.EntityFrameworkCore/8.0.6": {
+      "sha512": "Ms5e5QuBAjVIuQsGumeLvkgMiOpnj6wxPvwBIoe1NfTkseWK4NZYztnhgDlpkCPkrUmJEXLv69kl349Ours30Q==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore/8.0.5",
+      "path": "microsoft.entityframeworkcore/8.0.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4914,14 +4914,14 @@
         "buildTransitive/net8.0/Microsoft.EntityFrameworkCore.props",
         "lib/net8.0/Microsoft.EntityFrameworkCore.dll",
         "lib/net8.0/Microsoft.EntityFrameworkCore.xml",
-        "microsoft.entityframeworkcore.8.0.5.nupkg.sha512",
+        "microsoft.entityframeworkcore.8.0.6.nupkg.sha512",
         "microsoft.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Abstractions/8.0.5": {
-      "sha512": "qwYdfjFKtmTXX8NIm0MuZxUkon1tcw+aF5huzR7YOVr/tR3s4fqw9DWcvc23l3Jhpo/uGHWZcNPyFlI2CD3Usg==",
+    "Microsoft.EntityFrameworkCore.Abstractions/8.0.6": {
+      "sha512": "X7wSSBNFRuN8j8M9HDYG7rPpEeyhY+PdJZR9rftmgvsZH0eK5+bZ3b3As8iO4rLEpjsBzDnrgSIY6q2F3HQatw==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.abstractions/8.0.5",
+      "path": "microsoft.entityframeworkcore.abstractions/8.0.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4929,14 +4929,14 @@
         "PACKAGE.md",
         "lib/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll",
         "lib/net8.0/Microsoft.EntityFrameworkCore.Abstractions.xml",
-        "microsoft.entityframeworkcore.abstractions.8.0.5.nupkg.sha512",
+        "microsoft.entityframeworkcore.abstractions.8.0.6.nupkg.sha512",
         "microsoft.entityframeworkcore.abstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/8.0.5": {
-      "sha512": "LzoKedC+9A8inF5d3iIzgyv/JDXgKrtpYoGIC3EqGWuHVDm9s/IHHApeTOTbzvnr7yBVV+nmYfyT1nwtzRDp0Q==",
+    "Microsoft.EntityFrameworkCore.Analyzers/8.0.6": {
+      "sha512": "fDNtuQ4lAaPaCOlsrwUck/GvnF4QLeDpMmE1L5QtxZpMSmWfnL2/vk8sDL9OVTWcfprooI9V5MNpIx3/Tq5ehg==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.analyzers/8.0.5",
+      "path": "microsoft.entityframeworkcore.analyzers/8.0.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4944,7 +4944,7 @@
         "analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll",
         "docs/PACKAGE.md",
         "lib/netstandard2.0/_._",
-        "microsoft.entityframeworkcore.analyzers.8.0.5.nupkg.sha512",
+        "microsoft.entityframeworkcore.analyzers.8.0.6.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
@@ -8089,7 +8089,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.5",
-      "Microsoft.EntityFrameworkCore >= 8.0.5",
+      "Microsoft.EntityFrameworkCore >= 8.0.6",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.5",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.5",
@@ -8100,19 +8100,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\yaros\\.nuget\\packages\\": {}
+    "C:\\Users\\tikho\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\yaros\\OneDrive\\Документы\\GitHub\\CandyShop\\backend\\backend.csproj",
+      "projectUniqueName": "D:\\Git Repositories\\CandyShop\\CandyShop\\backend\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "C:\\Users\\yaros\\OneDrive\\Документы\\GitHub\\CandyShop\\backend\\backend.csproj",
-      "packagesPath": "C:\\Users\\yaros\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\yaros\\OneDrive\\Документы\\GitHub\\CandyShop\\backend\\obj\\",
+      "projectPath": "D:\\Git Repositories\\CandyShop\\CandyShop\\backend\\backend.csproj",
+      "packagesPath": "C:\\Users\\tikho\\.nuget\\packages\\",
+      "outputPath": "D:\\Git Repositories\\CandyShop\\CandyShop\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\yaros\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tikho\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8120,6 +8120,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8149,7 +8150,7 @@
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
-            "version": "[8.0.5, )"
+            "version": "[8.0.6, )"
           },
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

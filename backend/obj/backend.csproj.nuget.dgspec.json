@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yaros\\OneDrive\\Документы\\GitHub\\CandyShop\\backend\\backend.csproj": {}
+    "D:\\Git Repositories\\CandyShop\\CandyShop\\backend\\backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yaros\\OneDrive\\Документы\\GitHub\\CandyShop\\backend\\backend.csproj": {
+    "D:\\Git Repositories\\CandyShop\\CandyShop\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yaros\\OneDrive\\Документы\\GitHub\\CandyShop\\backend\\backend.csproj",
+        "projectUniqueName": "D:\\Git Repositories\\CandyShop\\CandyShop\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "C:\\Users\\yaros\\OneDrive\\Документы\\GitHub\\CandyShop\\backend\\backend.csproj",
-        "packagesPath": "C:\\Users\\yaros\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yaros\\OneDrive\\Документы\\GitHub\\CandyShop\\backend\\obj\\",
+        "projectPath": "D:\\Git Repositories\\CandyShop\\CandyShop\\backend\\backend.csproj",
+        "packagesPath": "C:\\Users\\tikho\\.nuget\\packages\\",
+        "outputPath": "D:\\Git Repositories\\CandyShop\\CandyShop\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\yaros\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tikho\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -51,7 +52,7 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.5, )"
+              "version": "[8.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

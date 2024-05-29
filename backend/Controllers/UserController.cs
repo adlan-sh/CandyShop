@@ -62,7 +62,8 @@ namespace backend.Controllers
             var product = await _ctx.Products.FirstOrDefaultAsync(p => p.Id == productId);
             if (product is null) return ValidationProblem($"Product with ID {productId} does not exist.");
 
-            var existingCartItem = await _ctx.CartItems.FirstOrDefaultAsync(ci => ci.Item.Id == product.Id);
+            var existingCartItem = await _ctx.CartItems
+                .FirstOrDefaultAsync(ci => ci.Item.Id == product.Id && ci.User.Id == user.Id);
             if (existingCartItem != null)
             {
                 existingCartItem.CountInCart++;

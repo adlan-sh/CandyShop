@@ -47,10 +47,7 @@ namespace backend.Controllers
 
                 return Ok(userReturn);
             }
-
-
         }
-
         
         protected async Task<IActionResult> Register(string login, string pw, string? email, string? username)
         {
@@ -64,6 +61,11 @@ namespace backend.Controllers
                 Username = username,
                 Role = UserRole.Customer,
             };
+
+            var duplicateLoginUser = _ctx.Users.FirstOrDefaultAsync(u => u.Login == user.Login);
+            var duplicateEmailUser = _ctx.Users.FirstOrDefaultAsync(u => u.Email == user.Email);
+            if (duplicateLoginUser != null) return ValidationProblem($"User with login {user.Login} already exists.");
+            if (duplicateEmailUser != null) return ValidationProblem($"User with email {user.Email} already exists.");
 
             _ctx.Users.Add(user);
             await _ctx.SaveChangesAsync();
