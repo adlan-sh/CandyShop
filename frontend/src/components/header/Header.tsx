@@ -98,7 +98,7 @@ const Header = () => {
                         {isLoginPopup ?
                             <Popover trigger={Button}>
                                 <div className="popover popover-entry ">
-                                    <h3 className="popover-title">Личный кабинет</h3>
+                                    <Link to='/account'><h3 className="popover-title">Личный кабинет</h3></Link>
                                     <form onSubmit={(e) => handleSubmit(e, login)} className="popover-entry-form">
                                         <input name="email" placeholder="Логин" />
                                         <input type="password" name="password" placeholder="Пароль" />
@@ -147,7 +147,7 @@ const Header = () => {
                                         )}
                                     </ul>
                                     <div className="popover-cart-info">
-                                        <button className="additional-button popover-button" type="button">Оформить заказ</button>
+                                        <Link to='/pay'><button className="additional-button popover-button" type="button">Оформить заказ</button></Link>
                                         <p className="popover-result">Итого: {getTotalPrice(data!)} Р</p>
                                     </div>
                                 </div> :

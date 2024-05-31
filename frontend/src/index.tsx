@@ -10,7 +10,10 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
-
+import Account from './routes/Account';
+import Admin from './routes/Admin';
+import Payment from './routes/Payment';
+import useGetCart from './api/cart/getCartRequest';
 
 
 const routers = createBrowserRouter([
@@ -24,6 +27,18 @@ const routers = createBrowserRouter([
       {
         path: "/catalog",
         element: <Catalog />
+      },
+      {
+        path: "/account",
+        element: <Account />
+      },
+      {
+        path: "/admin",
+        element: <Admin />
+      },
+      {
+        path: '/pay',
+        element: <Payment />
       }
     ]
   }
@@ -42,7 +57,6 @@ const useUserContext = () => {
   }
 }
 const queryClient = new QueryClient();
-
 
 const Context = React.createContext({
   auth: false,

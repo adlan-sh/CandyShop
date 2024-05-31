@@ -1,9 +1,13 @@
+import useGetOrder from "../../api/user/getOrder";
+import useGetUser from "../../api/user/getUser";
 import Code from "./code/Code";
 import Field from "./field/Field";
 import Order from "./order/Order";
 import "./user-account.scss";
 
 function UserAccount() {
+    const user = useGetUser();
+    const order = useGetOrder();
     return (
         <main className="main-container">
             <div className="avatar">
@@ -11,11 +15,11 @@ function UserAccount() {
             </div>
             <div className="first-line">
                 <div className="fields">
-                    <Field head="Пользователь" placeholder="Иван Иванов" name="name" type="text" className="user" />
-                    <Field head="Email" placeholder="ivanov@mail.ru" name="email" type="email" className="email" />
+                    <Field head="Пользователь" placeholder={user.data?.name} name="name" type="text" className="user" />
+                    <Field head="Email" placeholder={user.data?.email} name="email" type="email" className="email" />
                     <Field head="Номер телефона" placeholder="+7 (544)-584-5222" name="phone" type="phone" className="tel" />
                 </div>
-                <div className="cart">
+                {/* <div className="cart">
                 <div className="popover-cart">
                     <h3 className="popover-title">Корзина</h3>
                     <ul className="popover-list">
@@ -39,7 +43,7 @@ function UserAccount() {
                         <p className="popover-result">Итого: 790 Р</p>
                     </div>
                 </div>
-                </div>
+                </div> */}
             </div>
             <div className="line">
                 <h2>Текущие заказы:</h2>
@@ -47,24 +51,20 @@ function UserAccount() {
             </div>
             <div className="second-line">
                 <div className="orders">
-                    <Order 
-                        imageSrc='circle-pistachio-ice-cream.jpg' 
-                        name='Фисташка' 
-                        description='Фисташковый пломбир с кусочками шоколада' 
-                        price='340' 
-                        orderPrice='680'
-                        className="red-status"
-                        status='В пути' 
-                    />
-                    <Order 
-                        imageSrc='circle-pistachio-ice-cream.jpg' 
-                        name='Бабл-гам' 
-                        description='Ванильный пломбир со сладкой посыпкой' 
-                        price='320' 
-                        orderPrice='320' 
-                        status='Доставлен'
-                        className='green-status'
-                    />
+                    {
+                        order.data?.map(element => {
+                            let priceTotal = Number(element.costPer100g) * Number(element.count);
+                            return <Order 
+                                imageSrc={element.icon}
+                                name={element.name}
+                                description={element.tag + element.category} 
+                                price={element.costPer100g}
+                                orderPrice={priceTotal}
+                                className="red-status"
+                                status='В пути' 
+                            />
+                        })
+                    }
                 </div>
                 <div className="qr-code">
                     <Code code="254275" />

@@ -20,9 +20,9 @@ builder.Services.AddSingleton<PayService>(); // сервис платежей
 
 var provider = builder.Services.BuildServiceProvider();
 var configuration = builder.Configuration;
-var cs = configuration.GetConnectionString("AppDbConnectionString");
+var cs = builder.Configuration.GetConnectionString("AppDbConnectionString");
 
-builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(cs, ServerVersion.AutoDetect(cs)));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(cs, ServerVersion.Create(8, 0, 30, Pomelo.EntityFrameworkCore.MySql.Infrastructure.ServerType.MySql)));
 
 builder.Services.AddAuthentication(x =>
 {

@@ -12,7 +12,7 @@ function Field({ head, placeholder, name, type, className } : FieldType) {
     return (
         <div>
             <h4>{head}</h4>
-            <input placeholder={placeholder} name={name} type={type} className={className} />
+            <input placeholder={placeholder} name={name} type={type} className={className} disabled />
         </div>
     );
 }

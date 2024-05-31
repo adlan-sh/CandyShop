@@ -1,0 +1,16 @@
+form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.admin-panel {
+    display: flex;
+    justify-content: space-around;
+}
+
+.type {
+    display: flex;
+    flex-direction: column;
+}
+

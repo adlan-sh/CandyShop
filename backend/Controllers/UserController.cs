@@ -80,7 +80,7 @@ namespace backend.Controllers
                 _ctx.CartItems.Add(cartItem);
             }
 
-            await _ctx.SaveChangesAsync();
+            //await _ctx.SaveChangesAsync();
 
             return Ok();
         }
@@ -96,15 +96,16 @@ namespace backend.Controllers
             if (cartItem is null) return ValidationProblem($"Product with ID {productId} is not present in user's cart.");
 
             _ctx.CartItems.Remove(cartItem);
-            await _ctx.SaveChangesAsync();
+            //await _ctx.SaveChangesAsync();
 
             return Ok();
         }
 
         [Route("pay")]
         [HttpPost]
-        public async Task<IActionResult> Pay(List<Product> products, string paymentId)
+        public async Task<IActionResult> Pay(List<Product> products)
         {
+            string paymentId = "2dec2371-000f-5000-a000-139045e74ef8";
             bool successfulPayment = _payService.CheckPayment(paymentId);
             var user = await GetCurrentUser();
             if (user is null) return Unauthorized();
@@ -129,7 +130,7 @@ namespace backend.Controllers
                     }
                     else Console.WriteLine($"Error: cartItem with product id {product.Id} wasn't found during payment");
                 }
-                await _ctx.SaveChangesAsync();
+                //await _ctx.SaveChangesAsync();
             }
 
             return Ok(successfulPayment);
@@ -186,7 +187,7 @@ namespace backend.Controllers
             cartItem.CountInCart = newCount;
 
             _ctx.CartItems.Update(cartItem);
-            await _ctx.SaveChangesAsync();
+            //await _ctx.SaveChangesAsync();
 
             return Ok();
         }
