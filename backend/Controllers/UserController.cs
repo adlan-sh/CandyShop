@@ -93,6 +93,8 @@ namespace backend.Controllers
             if (user is null) return Unauthorized();
 
             var cartItem = await _ctx.CartItems.FirstOrDefaultAsync(ci => ci.User.Id == user.Id && ci.Item.Id == productId);
+            var product = await _ctx.Products.FirstOrDefaultAsync(p => p.Id == productId);
+            cartItem.Item = product;
             if (cartItem is null) return ValidationProblem($"Product with ID {productId} is not present in user's cart.");
 
             _ctx.CartItems.Remove(cartItem);
@@ -182,13 +184,13 @@ namespace backend.Controllers
             }
 
             var cartItem = await _ctx.CartItems
-                .SingleOrDefaultAsync(ci => ci.Item.Id == productId);
+                .SingleOrDefaultAsync(ci => ci.Item.Id == productId && ci.User.Id == user.Id);
             if (cartItem is null) return ValidationProblem($"Could not find CartItem with productId = {productId}");
 
-            cartItem.CountInCart = newCount;
+            cartItem.CountInCart = newCount;    
 
             _ctx.CartItems.Update(cartItem);
-            //await _ctx.SaveChangesAsync();
+            await _ctx.SaveChangesAsync();
 
             return Ok();
         }
