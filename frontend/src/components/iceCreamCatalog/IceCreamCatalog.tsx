@@ -7,10 +7,13 @@ import useGetProducts from '../../api/product/getProducts';
 import { ProductType } from '../../api/product/product.type';
 import { Loader2 } from "lucide-react";
 import useAddCartItem from "../../api/cart/addToCartRequest";
+import useGetCart from "../../api/cart/getCartRequest";
 
 
 const IceCreamCatalog = ({ data }: { data: ProductType[] | undefined }) => {
-    const { mutate } = useAddCartItem();
+    const { RefetchCart } = useGetCart(false);
+
+    const { mutate } = useAddCartItem(RefetchCart);
 
     return (
         <section className="popular-tastes">

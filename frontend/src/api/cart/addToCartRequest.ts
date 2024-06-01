@@ -1,18 +1,24 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "../axios";
+import { toast } from "react-toastify";
 
 type Item = {
     id: number;
 }
 
-const useAddCartItem = () => {
+const useAddCartItem = (refetchCart: any) => {
     const { mutate, error: addCartItemError, isPending } = useMutation({
-        mutationFn: (productId: number) => {
+        mutationFn: async (productId: number) => {
             console.log(productId);
-            return axios.post(`/api/user/add-to-cart?productId=${productId}`, {},
+            const a = await axios.post(`/api/user/add-to-cart?productId=${productId}`, {},
                 {
                     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
-                })
+                });
+            toast("Товар добавлен в корзину", { type: "success", position: "bottom-right" });
+            return a;
+        },
+        onSuccess: () => {
+            refetchCart();
         }
 
     });
