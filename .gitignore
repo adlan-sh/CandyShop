@@ -384,3 +384,14 @@ backend/.vs/backend/v17/.futdcache.v2
 backend/.vs/ProjectEvaluation/backend.metadata.v8.bin
 backend/.vs/ProjectEvaluation/backend.projects.v8.bin
 backend/.vs/ProjectEvaluation/backend.strings.v8.bin
+/backend/.vs
+/backend/obj
+*.cache
+backend/.vs/backend/v17/.suo
+backend/bin/Debug/net6.0/backend.dll
+backend/bin/Debug/net6.0/backend.pdb
+backend/obj/Debug/net6.0/backend.assets.cache
+backend/obj/Debug/net6.0/backend.GeneratedMSBuildEditorConfig.editorconfig
+backend/obj/Debug/net6.0/backend.pdb
+backend/obj/Debug/net6.0/backend.dll
+backend/obj/staticwebassets.pack.sentinel

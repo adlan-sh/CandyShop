@@ -1,6 +1,7 @@
 import { ProductType } from "../product/product.type"
 
 export type CartItem = {
+    id: number,
     item: ProductType,
     countInCart: number
 }
