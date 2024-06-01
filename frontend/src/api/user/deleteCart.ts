@@ -1,19 +1,20 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import axios from "../axios";
+import { PaginationProductType, ProductType } from "./../product/product.type";
+import { useState } from "react";
 
 const useDeleteCart = () => {
-    const { mutate: deleteCart, error: addCartItemError, isPending } = useMutation({
-        mutationFn: async (id: number) => {
-        const res = await axios.delete(`/api/user/remove-from-cart?productId=${id}`,
-        {   
-            headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
-        })
-        console.log(res.data)
+    const { data, error: getProductsError, isPending: IsPendingGetProducts } = useQuery({
+        queryKey: [],
+        queryFn: async () => {
+            const a = await axios.delete(`/api/user/remove-from-cart}`, {   
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+            })
+            console.log(a);
+            return a.data;
         },
     });
-
-    return { deleteCart, addCartItemError, isPending };
+    return { data, getProductsError, IsPendingGetProducts };
 }
 
 export default useDeleteCart;
-
