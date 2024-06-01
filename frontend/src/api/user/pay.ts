@@ -2,6 +2,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "../axios";
 
 type Product = {
+    id: number;
     name: string;
     count: number;
     icon: string;
@@ -13,12 +14,12 @@ type Product = {
 
 const usePay = () => {
     const { mutate: pay, error: addCartItemError, isPending } = useMutation({
-        mutationFn: async ({name, count, icon, costPer100g, category, tag, hidden}: Product) => {
-        const res = await axios.post(`/api/admin/add-product`, {
-            name, count, icon, costPer100g, category, tag, hidden
-        },
-        {   
-            headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+        mutationFn: async (products: Product[]) => {
+        console.log(products);
+        const res = await axios.post(`/api/user/pay`, 
+        JSON.stringify(products),
+        {
+            headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, "Content-Type": "application/json" },
         })
         console.log(res.data)
         },

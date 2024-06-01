@@ -11,7 +11,7 @@ function UserAccount() {
     return (
         <main className="main-container">
             <div className="avatar">
-                <img src="./../../images/lk/default-avatar.svg" alt="avatar" />
+                <img src="https://www.svgrepo.com/show/192247/man-user.svg" width={150} alt="avatar" />
             </div>
             <div className="first-line">
                 <div className="fields">

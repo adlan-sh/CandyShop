@@ -2,11 +2,24 @@ import { useState } from "react";
 import useGetCart from "../api/cart/getCartRequest";
 import useDeleteCart from "../api/user/deleteCart";
 import useDeleteCartItem from "../api/cart/deleteCartItem";
+import usePay from "../api/user/pay";
+
+type Product = {
+    id: number;
+    name: string;
+    count: number;
+    icon: string;
+    costPer100g: number;
+    category: string;
+    tag: string;
+    hidden: boolean
+}
 
 function Payment() {
     const [auth, isAuth] = useState(false);
     const { data } = useGetCart(auth);
     const { mutate, isPending, error } = useDeleteCartItem(auth);
+    const { pay } = usePay();
     let totalPrice = 0;
 
     const handleDelete = async (idProd: number) => {
@@ -15,14 +28,37 @@ function Payment() {
         );
     }
 
-    let func;
+    const handlePay = async(prods: Product[]) => {
+        console.log(prods);
+        const order = await pay(prods);
+    }
 
-    data?.forEach(async element => {
+    let func = () => {};
+    let funcPay = () => {};
+
+    let product: Product;
+
+    data?.forEach(async (element) => {
+        let product = {
+            name: element.item.name, 
+            id:element.item.id,  
+            count:element.item.count, 
+            icon:element.item.icon, 
+            costPer100g:element.item.costPer100g, 
+            category:element.item.category, 
+            tag:element.item.tag, 
+            hidden:element.item.hidden, 
+    
+        };
         totalPrice += element.item.count * element.item.costPer100g;
         func = () => handleDelete(element.item.id);
+        funcPay = () => handlePay([product]);
     });
 
-    
+    const handleClick = () => {
+        func();
+        funcPay();
+    }
 
     return (
     <div>
@@ -32,7 +68,7 @@ function Payment() {
                 <div className="ym-input-icon-rub">
                     <input readOnly value={totalPrice} name="sum" placeholder="0.00" className="ym-input ym-sum-input ym-required-input" type="number" step="any" />
                 </div>
-                <button onClick={func} data-text="Заплатить" className="ym-btn-pay ym-result-price">
+                <button onClick={handleClick} data-text="Заплатить" className="ym-btn-pay ym-result-price">
                     <span className="ym-text-crop">Заплатить</span> 
                     <span className="ym-price-output"></span>
                 </button>
