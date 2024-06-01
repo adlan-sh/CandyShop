@@ -27,12 +27,15 @@ const Button = ({ onClick }: { name: string, onClick?: () => void, }) => {
 }
 
 const Button2 = ({ onClick }: { onClick: () => void }) => {
+    const { data, getCartError, IsPendingGetCart, RefetchCart } = useGetCart(true);
+
+    console.log(data);
     return (
         <button onClick={onClick} className="navigation-link navigation-link-with-img">
             <svg className="navigation-icon" width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.31.49a.67.67 0 0 0 0 1.33h2.06l.54 2.7.01.05 1.1 5.44a1.97 1.97 0 0 0 1.96 1.6h6.32a1.97 1.97 0 0 0 1.96-1.6l1.05-5.47a.67.67 0 0 0-.66-.8H5.12l-.55-2.71a.67.67 0 0 0-.65-.54h-2.6Zm5.01 9.26L5.4 5.08h9.46l-.9 4.68a.64.64 0 0 1-.63.5H6.96a.64.64 0 0 1-.64-.5Zm-1.1 4.44a1.32 1.32 0 1 1 2.63 0 1.32 1.32 0 0 1-2.64 0Zm7.16 0a1.32 1.32 0 1 1 2.64 0 1.32 1.32 0 0 1-2.64 0Z"
                 fill="#2D3440" />
             </svg>
-            Пусто
+            {data?.length ? data.length : "Пусто"}
         </button>
     )
 }

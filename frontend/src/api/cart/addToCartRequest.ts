@@ -7,11 +7,14 @@ type Item = {
 
 const useAddCartItem = () => {
     const { mutate, error: addCartItemError, isPending } = useMutation({
-        mutationFn: (productId: number) =>
-            axios.post(`/api/user/add-to-cart?productId=${productId}`, {},
+        mutationFn: (productId: number) => {
+            console.log(productId);
+            return axios.post(`/api/user/add-to-cart?productId=${productId}`, {},
                 {
                     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
                 })
+        }
+
     });
 
     return { mutate, addCartItemError, isPending };
