@@ -420,3 +420,5 @@ backend/obj/Debug/net6.0/backend.pdb
 backend/obj/Debug/net6.0/ref/backend.dll
 backend/obj/project.assets.json
 backend/obj/project.nuget.cache
+backend/obj/Debug/net6.0/backend.assets.cache
+backend/obj/Debug/net6.0/backend.GeneratedMSBuildEditorConfig.editorconfig
