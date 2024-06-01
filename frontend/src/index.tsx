@@ -46,21 +46,28 @@ const routers = createBrowserRouter([
 
 const useUserContext = () => {
   const [auth, isAuth] = useState(false);
+  const [changer, setChanger] = useState(0);
   // const first = useContext(Context);
   const toggleAuth = useCallback((boolean: boolean) => {
     isAuth(boolean);
   }, []);
 
+
+
   return {
     toggleAuth,
-    auth
+    auth,
+    setChanger,
+    changer
   }
 }
 const queryClient = new QueryClient();
 
 const Context = React.createContext({
   auth: false,
-  toggleAuth: (boolean: boolean) => { }
+  toggleAuth: (boolean: boolean) => { },
+  setChanger: (number: number) => { },
+  changer: 0
 });
 export const AppContextProvider = ({ children, ...props }: any) => {
   const context = useUserContext();

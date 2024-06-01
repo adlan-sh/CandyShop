@@ -7,6 +7,7 @@ import strawberryIceCreamMicro from "../../images/strawberry-ice-cream-micro.png
 import creamyIceCream from "../../images/creamy-ice-cream.png"
 import creamyIceCreamMicro from "../../images/creamy-ice-cream-micro.png"
 import Contacts from '../contacts/Contacts';
+import { Link } from 'react-router-dom';
 
 const Bestsellers = () => {
     const themes = ["#FCC850", "#69A9FF", "#FEAFC3"];
@@ -19,7 +20,9 @@ const Bestsellers = () => {
                     топпингом и кусочками зефира завоюет<br />
                     сердца сладкоежек всех возрастов.
                 </p>
-                <button className="main-button bestseller-button" type="button">Заказать</button>
+                <Link to="/catalog">
+                    <button className="main-button bestseller-button" type="button">Заказать</button>
+                </Link>
             </div>
             <ul className="bestseller-list">
                 <li className="bestseller-item bestseller-item-current">

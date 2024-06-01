@@ -133,13 +133,13 @@ const Panel = (props: Props) => {
         
         <div className='type'>
         <h2>Обновить продукт</h2>
-        <form onSubmit={(e) => handleGet(e)} method='POST'>
+        {/* <form onSubmit={(e) => handleGet(e)} method='POST'>
             <div>
                 <label>ID</label>
                 <input name='id' type='number' />
             </div>
             <button type='submit'>Получить</button>
-        </form>
+        </form> */}
 
         <form onSubmit={(e) => handleUpdate(e)} method='POST'>
             <div>

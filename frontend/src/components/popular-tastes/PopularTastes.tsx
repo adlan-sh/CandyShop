@@ -6,10 +6,13 @@ import CircleBubbleGumIceCream from "../../images/circle-bubble-gum-ice-cream.jp
 import useAddCartItem from '../../api/cart/addToCartRequest';
 import { ProductType } from "../../api/product/product.type";
 import useGetProducts from "../../api/product/getProducts";
+import useGetCart from "../../api/cart/getCartRequest";
 
 
 const PopularTastes = () => {
-    const { mutate } = useAddCartItem();
+    const { RefetchCart } = useGetCart(false);
+
+    const { mutate } = useAddCartItem(RefetchCart);
     const { data, IsPendingGetProducts, getProductsError } = useGetProducts();
 
 

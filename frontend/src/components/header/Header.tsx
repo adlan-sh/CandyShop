@@ -59,7 +59,6 @@ const handleRegister = async (e: any, login: any) => {
 }
 
 const Header = () => {
-    const { auth, toggleAuth } = useAppContext();
     const { data, getCartError, IsPendingGetCart, RefetchCart } = useGetCart(auth);
     const { mutate: deleteCartItem, error: deleteError, isPending } = useDeleteCartItem(RefetchCart);
     const { changeCartItemCount, IsPendingchangeCartItemCount, ErrorChangeCartItemCount } = useChangeCartItemCount(RefetchCart);
