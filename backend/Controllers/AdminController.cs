@@ -50,10 +50,27 @@ namespace backend.Controllers
             var admin = await GetAdmin();
             if (admin is null) return Unauthorized();
 
-            var product = await _ctx.Products.FirstOrDefaultAsync(p => p.Id == productId);
-            if (product is null) return NotFound($"Could not find product with ID {productId}.");
+            var product = await _ctx.Products.FirstOrDefaultAsync(p => p.Id == productId && !p.Hidden);
+            if (product is null) return NotFound($"Could not find unhidden product with ID {productId}.");
 
             product.Hidden = true;
+            _ctx.Products.Update(product);
+            await _ctx.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        [Route("return-product")]
+        [HttpPut]
+        public async Task<IActionResult> ReturnProduct(int productId)
+        {
+            var admin = await GetAdmin();
+            if (admin is null) return Unauthorized();
+
+            var product = await _ctx.Products.FirstOrDefaultAsync(p => p.Id == productId && p.Hidden);
+            if (product is null) return NotFound($"Could not find hidden product with ID {productId}.");
+
+            product.Hidden = false;
             _ctx.Products.Update(product);
             await _ctx.SaveChangesAsync();
 

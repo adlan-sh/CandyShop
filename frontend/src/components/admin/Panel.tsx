@@ -5,6 +5,7 @@ import './panel.scss'
 import useUpdateProduct from '../../api/admin/updateProduct'
 import useDeleteProduct from '../../api/admin/removeProduct'
 import useGetProduct from '../../api/admin/getProduct'
+import useReturnProduct from '../../api/admin/returnProduct'
 import { ProductType } from '../../api/product/product.type'
 import { ListFormat } from 'typescript'
 import ProductList from './ProductList'
@@ -25,6 +26,7 @@ const Panel = (props: Props) => {
     const { addProduct } = useAddProduct();
     const { updateProduct } = useUpdateProduct();
     const { deleteProduct } = useDeleteProduct();
+    const { returnProduct } = useReturnProduct();
 
     const [product, setProduct] = useState<Product>();
 
@@ -43,6 +45,7 @@ const Panel = (props: Props) => {
                 hidden: false 
             }
         );
+        window.location.reload();
     }
 
     const handleGet = async (e: any) => {
@@ -50,7 +53,7 @@ const Panel = (props: Props) => {
 
         const productData = await getProduct(Number(e.target[0].value));
 
-        console.log(productData)
+        console.log(productData);
 
         // let prod: Product = { 
         //     name: productData.name,
@@ -79,6 +82,7 @@ const Panel = (props: Props) => {
                 hidden: false 
             }
         );
+        window.location.reload();
     }
 
     const handleDelete = async (e: any) => {
@@ -86,6 +90,15 @@ const Panel = (props: Props) => {
         const delProduct = await deleteProduct(
                 e.target[0].value,
         );
+        window.location.reload();
+    }
+
+    const handleReturn = async (e: any) => {
+        e.preventDefault();
+        const retProduct = await returnProduct(
+            e.target[0].value,
+        );
+        window.location.reload();
     }
 
     return (
@@ -165,6 +178,14 @@ const Panel = (props: Props) => {
                 <input name='id' type='number' />
             </div>
             <button type='submit'>Удалить</button>
+        </form>
+        <h2>Вернуть продукт</h2>
+        <form onSubmit={(e) => handleReturn(e)} method='POST'>
+            <div>
+                <label>ID</label>
+                <input name='id' type='number' />
+            </div>
+            <button type='submit'>Вернуть</button>
         </form>
         </div>
         

@@ -384,3 +384,6 @@ backend/.vs/backend/v17/.futdcache.v2
 backend/.vs/ProjectEvaluation/backend.metadata.v8.bin
 backend/.vs/ProjectEvaluation/backend.projects.v8.bin
 backend/.vs/ProjectEvaluation/backend.strings.v8.bin
+/backend/.vs
+/backend/obj
+*.cache
