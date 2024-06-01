@@ -758,3 +758,5 @@ C:\Users\yaros\OneDrive\Документы\GitHub\CandyShop\backend\obj\Debug\ne
 C:\Users\yaros\OneDrive\Документы\GitHub\CandyShop\backend\obj\Debug\net6.0\backend.pdb
 C:\Users\yaros\OneDrive\Документы\GitHub\CandyShop\backend\obj\Debug\net6.0\backend.genruntimeconfig.cache
 C:\Users\yaros\OneDrive\Документы\GitHub\CandyShop\backend\obj\Debug\net6.0\ref\backend.dll
+D:\Git Repositories\CandyShop\CandyShop\backend\obj\Debug\net6.0\backend.sourcelink.json
+D:\Git Repositories\CandyShop\CandyShop\backend\obj\Debug\net6.0\refint\backend.dll
