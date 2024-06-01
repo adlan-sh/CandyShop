@@ -80,7 +80,7 @@ namespace backend.Controllers
                 _ctx.CartItems.Add(cartItem);
             }
 
-            //await _ctx.SaveChangesAsync();
+            await _ctx.SaveChangesAsync();
 
             return Ok();
         }
@@ -96,7 +96,7 @@ namespace backend.Controllers
             if (cartItem is null) return ValidationProblem($"Product with ID {productId} is not present in user's cart.");
 
             _ctx.CartItems.Remove(cartItem);
-            //await _ctx.SaveChangesAsync();
+            await _ctx.SaveChangesAsync();
 
             return Ok();
         }

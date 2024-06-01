@@ -65,7 +65,7 @@ namespace backend.Controllers
         public async Task<IActionResult> GetHiddenProducts()
         {
             var admin = await GetAdmin();
-            //if (admin is null) return Unauthorized();
+            if (admin is null) return Unauthorized();
 
             var products = await _ctx.Products
                 .Where(p => p.Hidden)
