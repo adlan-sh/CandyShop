@@ -103,7 +103,7 @@ namespace backend.Controllers
 
         [Route("pay")]
         [HttpPost]
-        public async Task<IActionResult> Pay(List<Product> products)
+        public async Task<IActionResult> Pay(Product[] products)
         {
             string paymentId = "2dec2371-000f-5000-a000-139045e74ef8";
             bool successfulPayment = _payService.CheckPayment(paymentId);
@@ -115,22 +115,23 @@ namespace backend.Controllers
             {
                 //removing bought products from user's cart
                 // and adding them to ordered items list
-                foreach (var product in products)
+                foreach (var product in products.ToList())
                 {
+                    var productDb = _ctx.Products.FirstOrDefault(p => p.Id == product.Id);
                     var cartItem = await _ctx.CartItems.FirstOrDefaultAsync(ci => ci.User.Id == user.Id && product.Id == ci.Item.Id);
                     if (cartItem is not null)
                     {
                         _ctx.CartItems.Remove(cartItem);
                         _ctx.OrderedItems.Add(new OrderedItem
                         {
-                            Item = product,
+                            Item = productDb,
                             Status = OrderStatus.Ordered,
                             User = user,
                         });
                     }
                     else Console.WriteLine($"Error: cartItem with product id {product.Id} wasn't found during payment");
                 }
-                //await _ctx.SaveChangesAsync();
+                await _ctx.SaveChangesAsync();
             }
 
             return Ok(successfulPayment);
