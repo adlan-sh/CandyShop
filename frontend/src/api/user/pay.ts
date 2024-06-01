@@ -16,12 +16,13 @@ const usePay = () => {
     const { mutate: pay, error: addCartItemError, isPending } = useMutation({
         mutationFn: async (products: Product[]) => {
         console.log(products);
-        const res = await axios.post(`/api/user/pay`, 
-        JSON.stringify(products),
-        {
-            headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, "Content-Type": "application/json" },
-        })
-        console.log(res.data)
+        products.forEach(async (element) => {
+            const res = await axios.post(`/api/user/pay`, 
+            JSON.stringify([element]),
+            {
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}`, "Content-Type": "application/json" },
+            })
+        });
         },
     });
 

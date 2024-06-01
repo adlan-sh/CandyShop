@@ -50,7 +50,7 @@ function Payment() {
             hidden:element.item.hidden, 
     
         };
-        totalPrice += element.item.count * element.item.costPer100g;
+        totalPrice += element.countInCart * element.item.costPer100g;
         func = () => handleDelete(element.item.id);
         funcPay = () => handlePay([product]);
     });
