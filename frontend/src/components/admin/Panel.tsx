@@ -1,20 +1,38 @@
 import { Check } from 'lucide-react'
-import React from 'react'
+import React, { useState } from 'react'
 import useAddProduct from '../../api/admin/addProduct'
 import './panel.scss'
 import useUpdateProduct from '../../api/admin/updateProduct'
 import useDeleteProduct from '../../api/admin/removeProduct'
+import useGetProduct from '../../api/admin/getProduct'
+import { ProductType } from '../../api/product/product.type'
+import { ListFormat } from 'typescript'
+import ProductList from './ProductList'
 
 type Props = {}
+
+type Product = {
+    name: string;
+    count: number;
+    icon: string;
+    costPer100g: number;
+    category: string;
+    tag: string;
+    hidden: boolean
+}
 
 const Panel = (props: Props) => {
     const { addProduct } = useAddProduct();
     const { updateProduct } = useUpdateProduct();
     const { deleteProduct } = useDeleteProduct();
 
+    const [product, setProduct] = useState<Product>();
+
+    const { getProduct } = useGetProduct();
+
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        const product = await addProduct(
+        const productData = await addProduct(
             { 
                 name: e.target[0].value, 
                 count: e.target[1].value, 
@@ -25,6 +43,26 @@ const Panel = (props: Props) => {
                 hidden: false 
             }
         );
+    }
+
+    const handleGet = async (e: any) => {
+        e.preventDefault();
+
+        const productData = await getProduct(Number(e.target[0].value));
+
+        console.log(productData)
+
+        // let prod: Product = { 
+        //     name: productData.name,
+        //     count: productData.count;
+        //     icon: productData.icon;
+        //     costPer100g: productData.costPer100g;
+        //     category: productData.category;
+        //     tag: productData.tag;
+        //     hidden: productData.hidden
+        // };
+
+        // setProduct(prod);
     }
 
     const handleUpdate = async (e: any) => {
@@ -51,6 +89,7 @@ const Panel = (props: Props) => {
     }
 
     return (
+        <div>
         <div className='admin-panel'>
             <div className='type'>
             <h2>Добавить продукт</h2>
@@ -81,6 +120,14 @@ const Panel = (props: Props) => {
         
         <div className='type'>
         <h2>Обновить продукт</h2>
+        <form onSubmit={(e) => handleGet(e)} method='POST'>
+            <div>
+                <label>ID</label>
+                <input name='id' type='number' />
+            </div>
+            <button type='submit'>Получить</button>
+        </form>
+
         <form onSubmit={(e) => handleUpdate(e)} method='POST'>
             <div>
                 <label>ID</label>
@@ -120,7 +167,9 @@ const Panel = (props: Props) => {
             <button type='submit'>Удалить</button>
         </form>
         </div>
-
+        
+        </div>
+        <ProductList />
         </div>
     )
 }

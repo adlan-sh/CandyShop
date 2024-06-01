@@ -30,7 +30,7 @@ namespace backend.Controllers
             var user = await GetCurrentUser();
             if (user is null) return Unauthorized();
 
-            var products = await _ctx.CartItems.Where(ci => ci.User.Id == user.Id).Select(ci => new { ci.Item, ci.CountInCart }).ToListAsync();
+            var products = await _ctx.CartItems.Where(ci => ci.User.Id == user.Id).Select(ci => new { ci.Id, ci.Item, ci.CountInCart }).ToListAsync();
 
             return Ok(products);
         }

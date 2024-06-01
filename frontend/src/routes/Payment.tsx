@@ -1,13 +1,23 @@
 import { useState } from "react";
 import useGetCart from "../api/cart/getCartRequest";
+import useDeleteCart from "../api/user/deleteCart";
 
 function Payment() {
     const [auth, isAuth] = useState(false);
-    const cart = useGetCart(auth);
+    const { data } = useGetCart(auth);
+    const { deleteCart } = useDeleteCart();
     let totalPrice = 0;
+    let idProd = 0;
 
-    cart.data?.forEach(element => {
+    const handleDelete = async (idProd: number) => {
+        const delProduct = await deleteCart(
+            idProd
+        );
+    }
+
+    data?.forEach(element => {
         totalPrice += element.item.count * element.item.costPer100g;
+        idProd = element.item.id;
     });
 
     return (
@@ -18,7 +28,7 @@ function Payment() {
                 <div className="ym-input-icon-rub">
                     <input readOnly value={totalPrice} name="sum" placeholder="0.00" className="ym-input ym-sum-input ym-required-input" type="number" step="any" />
                 </div>
-                <button data-text="Заплатить" className="ym-btn-pay ym-result-price">
+                <button onClick={() => handleDelete(idProd)} data-text="Заплатить" className="ym-btn-pay ym-result-price">
                     <span className="ym-text-crop">Заплатить</span> 
                     <span className="ym-price-output"></span>
                 </button>
