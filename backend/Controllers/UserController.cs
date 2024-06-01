@@ -119,28 +119,21 @@ namespace backend.Controllers
                 // and adding them to ordered items list
                 foreach (var product in products)
                 {
-<<<<<<< HEAD
                     var productDb = _ctx.Products.FirstOrDefault(p => p.Id == product.Id);
                     var cartItem = await _ctx.CartItems.FirstOrDefaultAsync(ci => ci.User.Id == user.Id && productDb.Id == ci.Item.Id);
                     /*if (cartItem is not null)
                     {*/
                         //_ctx.CartItems.Remove(cartItem);
-=======
-                    var cartItem = await _ctx.CartItems.FirstOrDefaultAsync(ci => ci.User.Id == user.Id && product.Id == ci.Item.Id);
-                    if (cartItem is not null)
-                    {
-                        _ctx.CartItems.Remove(cartItem);
->>>>>>> 7ddded5ffdae07aeeff48167e1cd944f95fd0a9f
                         _ctx.OrderedItems.Add(new OrderedItem
                         {
-                            Item = product,
+                            Item = productDb,
                             Status = OrderStatus.Ordered,
                             User = user,
                         });
                    /* }
                     else Console.WriteLine($"Error: cartItem with product id {product.Id} wasn't found during payment");*/
                 }
-                //await _ctx.SaveChangesAsync();
+                await _ctx.SaveChangesAsync();
             }
 
             return Ok(successfulPayment);
